@@ -552,7 +552,7 @@ The Catalog Discovery Service (CDS) provides a centralized mechanism for Buyer P
 
 * **Successful on_catalog_publish** 
 <details>
-<summary><a href="../Example-schemas/21_publish/ev-charging-catalog-on_publish.json">Example json :rocket:</a></summary>
+<summary><a href="../Example-schemas/22_on_publish/ev-charging-catalog-on_publish.json">Example json :rocket:</a></summary>
   
 ```json
 {
