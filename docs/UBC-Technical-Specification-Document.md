@@ -151,6 +151,7 @@ The Catalog Discovery Service (CDS) provides a centralized mechanism for Buyer P
     "context": {
         "version": "2.0.0",
         "action": "catalog_publish",
+        "domain": "beckn.one:deg:ev-charging",
         "timestamp": "2025-12-19T10:05:00Z",
         "message_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -552,6 +553,7 @@ The Catalog Discovery Service (CDS) provides a centralized mechanism for Buyer P
 ```
 </details>
 
+> **Note:** It is important to highlight that the spatial coordinates placed within the "geo" field, [0] is latitude and [1] is longitude. 
 * **Successful on_catalog_publish** 
 <details>
 <summary><a href="../Example-schemas/22_on_publish/ev-charging-catalog-on_publish.json">Example json :rocket:</a></summary>
@@ -561,6 +563,7 @@ The Catalog Discovery Service (CDS) provides a centralized mechanism for Buyer P
 "context": {
     "version": "2.0.0",
     "action": "on_catalog_publish",
+    "domain": "beckn.one:deg:ev-charging",
     "timestamp": "2025-10-14T07:32:05Z",
     "message_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -775,7 +778,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "discover",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "app.example.com",
     "bap_uri": "https://app.example.com/bap",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -808,7 +811,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "on_discover",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "timestamp": "2024-01-15T10:30:05Z",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
     "message_id": "a1eabf26-29f5-4a01-9d4e-4c5c9d1a3d02",
@@ -1020,7 +1023,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "select",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "timestamp": "2024-01-15T10:30:00Z",
     "message_id": "bb9f86db-9a3d-4e9c-8c11-81c8f1a7b901",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -1108,7 +1111,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "on_select",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "timestamp": "2024-01-15T10:30:05Z",
     "message_id": "bb9f86db-9a3d-4e9c-8c11-81c8f1a7b901",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -1247,7 +1250,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
     "context": {
         "version": "2.0.0",
         "action": "init",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bpp_id": "example-bpp.com",
         "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -1377,7 +1380,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
     "context": {
         "version": "2.0.0",
         "action": "on_init",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bap_id": "example-bap.com",
         "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -1523,7 +1526,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "on_status",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -1643,7 +1646,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "confirm",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bpp_id": "example-bpp.com",
     "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -1762,7 +1765,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "on_confirm",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -1895,7 +1898,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
     "context": {
         "version": "2.0.0",
         "action": "status",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bap_id": "example-bap.com",
         "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2014,7 +2017,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
     "context": {
         "version": "2.0.0",
         "action": "on_status",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bap_id": "example-bap.com",
         "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2134,7 +2137,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "update",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://api.example-bap.com/pilot/bap/energy/v2](https://api.example-bap.com/pilot/bap/energy/v2)",
     "bpp_id": "example-bpp.com",
@@ -2253,7 +2256,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "on_update",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2372,7 +2375,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "track",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://api.example-bap.com/pilot/bap/energy/v2](https://api.example-bap.com/pilot/bap/energy/v2)",
     "bpp_id": "example-bpp.com",
@@ -2417,7 +2420,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "on_track",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2542,7 +2545,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
     "context": {
         "version": "2.0.0",
         "action": "on_update",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bap_id": "example-bap.com",
         "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2659,7 +2662,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "rating",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bpp_id": "example-bpp.com",
     "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2708,7 +2711,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "on_rating",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2742,7 +2745,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "support",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bpp_id": "example-bpp.com",
     "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2784,7 +2787,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
   "context": {
     "version": "2.0.0",
     "action": "on_support",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2882,7 +2885,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "discover",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "app.example.com",
     "bap_uri": "[https://app.example.com/bap](https://app.example.com/bap)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -2896,7 +2899,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "message": {
     "filters": {
       "type": "jsonpath",
-      "expression": "$[?(@.beckn:itemAttributes.vehicleType == '4-WHEELER' && @.beckn:itemAttributes.connectorType == 'CCS2' && @.beckn:availabilityWindow.schema:startTime <= '11:30:00' && @.beckn:availabilityWindow.schema:endTime >= '14:30:00')]"
+      "expression": "$[?(@.beckn:itemAttributes.vehicleType == '4-WHEELER' && @.beckn:itemAttributes.connectorType == 'CCS2' && @.beckn:availabilityWindow[?( @.schema:startTime <= '\''08:00:00'\'' && @.schema:endTime >= '\''11:00:00'\'')]"
     },
     "spatial": [
       {
@@ -2929,7 +2932,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "on_discover",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "timestamp": "2024-01-15T10:30:05Z",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
     "message_id": "a1eabf26-29f5-4a01-9d4e-4c5c9d1a3d02",
@@ -3344,7 +3347,7 @@ Satisfied, Aisha resumes her trip with time to spare.
     "context": {
         "version": "2.0.0",
         "action": "select",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "timestamp": "2024-01-15T10:30:00Z",
         "message_id": "bb9f86db-9a3d-4e9c-8c11-81c8f1a7b901",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -3432,7 +3435,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "on_select",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "timestamp": "2024-01-15T10:30:05Z",
     "message_id": "bb9f86db-9a3d-4e9c-8c11-81c8f1a7b901",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -3571,7 +3574,7 @@ Satisfied, Aisha resumes her trip with time to spare.
     "context": {
         "version": "2.0.0",
         "action": "init",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bpp_id": "example-bpp.com",
         "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -3701,7 +3704,7 @@ Satisfied, Aisha resumes her trip with time to spare.
     "context": {
         "version": "2.0.0",
         "action": "on_init",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bap_id": "example-bap.com",
         "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -3847,7 +3850,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "on_status",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -3967,7 +3970,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "confirm",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bpp_id": "example-bpp.com",
     "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -4087,7 +4090,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "on_confirm",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -4220,7 +4223,7 @@ Satisfied, Aisha resumes her trip with time to spare.
     "context": {
         "version": "2.0.0",
         "action": "status",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bap_id": "example-bap.com",
         "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -4339,7 +4342,7 @@ Satisfied, Aisha resumes her trip with time to spare.
     "context": {
         "version": "2.0.0",
         "action": "on_status",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bap_id": "example-bap.com",
         "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -4459,7 +4462,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "update",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://api.example-bap.com/pilot/bap/energy/v2](https://api.example-bap.com/pilot/bap/energy/v2)",
     "bpp_id": "example-bpp.com",
@@ -4578,7 +4581,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "on_update",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -4697,7 +4700,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "track",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://api.example-bap.com/pilot/bap/energy/v2](https://api.example-bap.com/pilot/bap/energy/v2)",
     "bpp_id": "example-bpp.com",
@@ -4742,7 +4745,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "on_track",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -4867,7 +4870,7 @@ Satisfied, Aisha resumes her trip with time to spare.
     "context": {
         "version": "2.0.0",
         "action": "on_update",
-        "domain": "beckn.one:deg:ev-charging:*",
+        "domain": "beckn.one:deg:ev-charging",
         "bap_id": "example-bap.com",
         "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
         "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -4984,7 +4987,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "rating",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bpp_id": "example-bpp.com",
     "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -5033,7 +5036,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "on_rating",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -5067,7 +5070,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "support",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bpp_id": "example-bpp.com",
     "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -5109,7 +5112,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "context": {
     "version": "2.0.0",
     "action": "on_support",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -5159,7 +5162,7 @@ The network architecture empowers all Network Participants (NPs) to function as 
   "context": {
     "version": "2.0.0",
     "action": "init",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bpp_id": "example-bpp.com",
     "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -5289,7 +5292,7 @@ The network architecture empowers all Network Participants (NPs) to function as 
   "context": {
     "version": "2.0.0",
     "action": "on_init",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -5437,8 +5440,8 @@ In instances where the User initiates the cancellation of an existing reservatio
 {
   "context": {
     "version": "2.0.0",
-    "domain": "beckn.one:deg:ev-charging:*",
     "action": "cancel",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://api.example-bap.com/pilot/bap/energy/v2](https://api.example-bap.com/pilot/bap/energy/v2)",
     "bpp_id": "example-bpp.com",
@@ -5493,8 +5496,8 @@ Conversely, in scenarios where the Provider is unable to fulfill the obligation,
 {
   "context": {
     "version": "2.0.0",
-    "domain": "beckn.one:deg:ev-charging:*",
     "action": "on_cancel",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -5618,7 +5621,7 @@ Operational anomalies or technical faults at the charging station may occasional
   "context": {
     "version": "2.0.0",
     "action": "on_status",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
@@ -5733,7 +5736,7 @@ During an active charging session, the user may elect to voluntarily terminate t
   "context": {
     "version": "2.0.0",
     "action": "update",
-    "domain": "beckn.one:deg:ev-charging:*",
+    "domain": "beckn.one:deg:ev-charging",
     "bpp_id": "example-bpp.com",
     "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
