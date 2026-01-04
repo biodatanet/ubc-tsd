@@ -1088,10 +1088,6 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "buyerFinderFee": {
           "feeType": "PERCENTAGE",
           "feeValue": 2.5
-        },
-        "preferences": {
-          "startTime": "1766224800",
-          "endTime": "1766230200"
         }
       }
     }
@@ -1227,10 +1223,6 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "buyerFinderFee": {
           "feeType": "PERCENTAGE",
           "feeValue": 2.5
-        },
-        "preferences": {
-          "startTime": "2025-12-20T10:00:00Z",
-          "endTime": "2025-12-20T11:30:00Z"
         }
       }
     }
@@ -3414,8 +3406,8 @@ Satisfied, Aisha resumes her trip with time to spare.
                     "feeValue": 2.5
                 },
                 "preferences": {
-                    "startTime": "2025-12-20T10:00:00Z",
-                    "endTime": "2025-12-20T11:30:00Z"
+                    "startTime": "1766224800",
+                    "endTime": "1766230200"
                 }
             }
         }
@@ -3553,8 +3545,8 @@ Satisfied, Aisha resumes her trip with time to spare.
           "feeValue": 2.5
         },
         "preferences": {
-          "startTime": "2025-12-20T10:00:00Z",
-          "endTime": "2025-12-20T11:30:00Z"
+          "startTime": "1766224800",
+          "endTime": "1766230200"
         }
       }
     }

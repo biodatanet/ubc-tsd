@@ -119,8 +119,8 @@
           "feeValue": 2.5
         },
         "preferences": {
-          "startTime": "2025-12-20T10:00:00Z",
-          "endTime": "2025-12-20T11:30:00Z"
+          "startTime": "1766224800",
+          "endTime": "1766230200"
         }
       }
     }
