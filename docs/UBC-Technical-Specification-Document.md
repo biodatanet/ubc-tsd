@@ -191,8 +191,8 @@ The Catalog Discovery Service (CDS) provides a centralized mechanism for Buyer P
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "06:00:00",
-                "schema:endTime": "22:00:00"
+                "schema:startTime": "2026-01-04T06:00:00+05:30",
+                "schema:endTime": "2026-01-04T22:00:00+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -267,8 +267,8 @@ The Catalog Discovery Service (CDS) provides a centralized mechanism for Buyer P
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "00:00:00",
-                "schema:endTime": "23:59:59"
+                "schema:startTime": "2026-01-04T00:00:00+05:30",
+                "schema:endTime": "2026-01-04T23:59:59+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -344,8 +344,8 @@ The Catalog Discovery Service (CDS) provides a centralized mechanism for Buyer P
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "08:00:00",
-                "schema:endTime": "20:00:00"
+                "schema:startTime": "2026-01-04T08:00:00+05:30",
+                "schema:endTime": "2026-01-04T20:00:00+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -854,8 +854,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "1780273800",
-                "schema:endTime": "1780331400"
+                "schema:startTime": "2026-01-04T08:00:00+05:30",
+                "schema:endTime": "2026-01-04T20:00:00+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -1088,7 +1088,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "buyerFinderFee": {
           "feeType": "PERCENTAGE",
           "feeValue": 2.5
-        }
+        },
       }
     }
   },
@@ -1223,7 +1223,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "buyerFinderFee": {
           "feeType": "PERCENTAGE",
           "feeValue": 2.5
-        }
+        },
       }
     }
   },
@@ -1267,7 +1267,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -1339,6 +1344,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         },
         "beckn:beneficiary": "BPP",
         "beckn:paymentStatus": "INITIATED",
+        "beckn:upiTransactionId": "UPI123456789012",
         "beckn:paymentAttributes": {
           "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
           "@type": "PaymentSettlement",
@@ -1397,7 +1403,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -1477,6 +1488,7 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
           "WALLET"
         ],
         "beckn:paymentStatus": "INITIATED",
+        "beckn:upiTransactionId": "UPI123456789012",
         "beckn:paymentAttributes": {
           "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
           "@type": "PaymentSettlement",
@@ -1543,7 +1555,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -1618,7 +1635,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -1663,7 +1681,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -1738,7 +1761,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -1783,7 +1807,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -1871,7 +1900,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -1916,7 +1946,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -1990,7 +2025,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -2035,7 +2071,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -2110,7 +2151,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -2155,7 +2197,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -2229,7 +2276,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -2274,7 +2322,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -2348,7 +2401,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -2388,7 +2442,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
       "beckn:buyer": {
         "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
         "@type": "beckn:Buyer",
-        "beckn:id": "user-123"
+        "beckn:id": "user-123",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -2433,7 +2492,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
       "beckn:buyer": {
         "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
         "@type": "beckn:Buyer",
-        "beckn:id": "user-123"
+        "beckn:id": "user-123",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -2563,7 +2627,12 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -2635,7 +2704,8 @@ The charging session will terminate when the ₹450.00 cost limit is reached, or
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -2892,7 +2962,7 @@ Satisfied, Aisha resumes her trip with time to spare.
   "message": {
     "filters": {
       "type": "jsonpath",
-      "expression": "$[?(@.beckn:itemAttributes.vehicleType == '4-WHEELER' && @.beckn:itemAttributes.connectorType == 'CCS2' && @.beckn:availabilityWindow[?(@.schema:startTime <= '1780293600' && @.schema:endTime >= '1780304400')])]"
+      "expression": "$[?(@.beckn:itemAttributes.vehicleType == '4-WHEELER' && @.beckn:itemAttributes.connectorType == 'CCS2' && @.beckn:availabilityWindow[?(@.schema:startTime <= '2026-01-04T20:00:00+05:30' && @.schema:endTime >= '2026-01-04T08:00:00+05:30')])]"
     },
     "spatial": [
       {
@@ -2967,8 +3037,8 @@ Satisfied, Aisha resumes her trip with time to spare.
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "1780273800",
-                "schema:endTime": "1780331400"
+                "schema:startTime": "2026-01-04T08:00:00+05:30",
+                "schema:endTime": "2026-01-04T20:00:00+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -3043,8 +3113,8 @@ Satisfied, Aisha resumes her trip with time to spare.
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "1780252200",
-                "schema:endTime": "1780338599"
+                "schema:startTime": "2026-01-04T07:00:00+05:30",
+                "schema:endTime": "2026-01-04T22:00:00+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -3120,8 +3190,8 @@ Satisfied, Aisha resumes her trip with time to spare.
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "1780281000",
-                "schema:endTime": "1780324200"
+                "schema:startTime": "2026-01-04T09:00:00+05:30",
+                "schema:endTime": "2026-01-04T18:00:00+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -3337,82 +3407,82 @@ Satisfied, Aisha resumes her trip with time to spare.
 
 ```json
 {
-    "context": {
-        "version": "2.0.0",
-        "action": "select",
-        "domain": "beckn.one:deg:ev-charging",
-        "timestamp": "2024-01-15T10:30:00Z",
-        "message_id": "bb9f86db-9a3d-4e9c-8c11-81c8f1a7b901",
-        "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
-        "bap_id": "example-bap.com",
-        "bap_uri": "[https://api.example-bap.com/pilot/bap/energy/v2](https://api.example-bap.com/pilot/bap/energy/v2)",
-        "bpp_id": "example-bpp.com",
-        "bpp_uri": "[https://example-bpp.com/pilot/bap/energy/v2](https://example-bpp.com/pilot/bap/energy/v2)",
-        "ttl": "PT30S"
-    },
-    "message": {
-        "order": {
-            "@context": "[https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld](https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld)",
-            "@type": "beckn:Order",
-            "beckn:orderStatus": "CREATED",
-            "beckn:seller": "ecopower-charging",
-            "beckn:buyer": {
-                "@context": "[https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld](https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld)",
-                "@type": "beckn:Buyer",
-                "beckn:id": "user-123",
-                "beckn:role": "BUYER",
-                "beckn:displayName": "Ravi Kumar",
-                "beckn:telephone": "+91-9876543210",
-                "beckn:email": "ravi.kumar@example.com",
-                "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+  "context": {
+    "version": "2.0.0",
+    "action": "select",
+    "domain": "beckn.one:deg:ev-charging",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "message_id": "bb9f86db-9a3d-4e9c-8c11-81c8f1a7b901",
+    "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
+    "bap_id": "example-bap.com",
+    "bap_uri": "https://api.example-bap.com/pilot/bap/energy/v2",
+    "bpp_id": "example-bpp.com",
+    "bpp_uri": "https://example-bpp.com/pilot/bap/energy/v2",
+    "ttl": "PT30S"
+  },
+  "message": {
+    "order": {
+      "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
+      "@type": "beckn:Order",
+      "beckn:orderStatus": "CREATED",
+      "beckn:seller": "ecopower-charging",
+      "beckn:buyer": {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
+        "@type": "beckn:Buyer",
+        "beckn:id": "user-123",
+        "beckn:role": "BUYER",
+        "beckn:displayName": "Ravi Kumar",
+        "beckn:telephone": "+91-9876543210",
+        "beckn:email": "ravi.kumar@example.com",
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+      },
+      "beckn:orderItems": [
+        {
+          "beckn:orderedItem": "IND*ecopower-charging*cs-01*IN*ECO*BTM*01*CCS2*A*CCS2-A",
+          "beckn:quantity": {
+            "unitText": "Kilowatt Hour",
+            "unitCode": "KWH",
+            "unitQuantity": 2.5
+          },
+          "beckn:acceptedOffer": {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
+            "@type": "beckn:Offer",
+            "beckn:id": "offer-ccs2-60kw-kwh",
+            "beckn:descriptor": {
+              "@type": "beckn:Descriptor",
+              "schema:name": "Per-kWh Tariff - CCS2 60kW"
             },
-            "beckn:orderItems": [
-                {
-                    "beckn:orderedItem": "IND*ecopower-charging*cs-01*IN*ECO*BTM*01*CCS2*A*CCS2-A",
-                    "beckn:quantity": {
-                        "unitText": "Kilowatt Hour",
-                        "unitCode": "KWH",
-                        "unitQuantity": 2.5
-                    },
-                    "beckn:acceptedOffer": {
-                        "@context": "[https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld](https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld)",
-                        "@type": "beckn:Offer",
-                        "beckn:id": "offer-ccs2-60kw-kwh",
-                        "beckn:descriptor": {
-                            "@type": "beckn:Descriptor",
-                            "schema:name": "Per-kWh Tariff - CCS2 60kW"
-                        },
-                        "beckn:items": [
-                            "IND*ecopower-charging*cs-01*IN*ECO*BTM*01*CCS2*A*CCS2-A"
-                        ],
-                        "beckn:provider": "ecopower-charging",
-                        "beckn:price": {
-                            "currency": "INR",
-                            "value": 45.0,
-                            "applicableQuantity": {
-                                "unitText": "Kilowatt Hour",
-                                "unitCode": "KWH",
-                                "unitQuantity": 1
-                            }
-                        }
-                    }
-                }
+            "beckn:items": [
+              "IND*ecopower-charging*cs-01*IN*ECO*BTM*01*CCS2*A*CCS2-A"
             ],
-            "beckn:orderAttributes": {
-                "@context": "[https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/EvChargingSession/v1/context.jsonld](https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/EvChargingSession/v1/context.jsonld)",
-                "@type": "ChargingSession",
-                "buyerFinderFee": {
-                    "feeType": "PERCENTAGE",
-                    "feeValue": 2.5
-                },
-                "preferences": {
-                    "startTime": "1766224800",
-                    "endTime": "1766230200"
-                }
+            "beckn:provider": "ecopower-charging",
+            "beckn:price": {
+              "currency": "INR",
+              "value": 45.0,
+              "applicableQuantity": {
+                "unitText": "Kilowatt Hour",
+                "unitCode": "KWH",
+                "unitQuantity": 1
+              }
             }
+          }
         }
-    },
-    "error": {}
+      ],
+      "beckn:orderAttributes": {
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/EvChargingSession/v1/context.jsonld",
+        "@type": "ChargingSession",
+        "buyerFinderFee": {
+          "feeType": "PERCENTAGE",
+          "feeValue": 2.5
+        },
+        "preferences": {
+          "startTime": "2026-01-04T08:00:00+05:30",
+          "endTime": "2026-01-04T20:00:00+05:30"
+        }
+      }
+    }
+  },
+  "error": {}
 }
 ```
 </details>
@@ -3433,19 +3503,19 @@ Satisfied, Aisha resumes her trip with time to spare.
     "message_id": "bb9f86db-9a3d-4e9c-8c11-81c8f1a7b901",
     "transaction_id": "2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002",
     "bap_id": "example-bap.com",
-    "bap_uri": "[https://example-bap.com/pilot/bap/energy/v2](https://example-bap.com/pilot/bap/energy/v2)",
+    "bap_uri": "https://example-bap.com/pilot/bap/energy/v2",
     "ttl": "PT30S",
     "bpp_id": "example-bpp.com",
-    "bpp_uri": "[https://example-bpp.com/pilot/bpp/energy/v2](https://example-bpp.com/pilot/bpp/energy/v2)"
+    "bpp_uri": "https://example-bpp.com/pilot/bpp/energy/v2"
   },
   "message": {
     "order": {
-      "@context": "[https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld](https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld)",
+      "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
       "@type": "beckn:Order",
       "beckn:orderStatus": "CREATED",
       "beckn:seller": "ecopower-charging",
       "beckn:buyer": {
-        "@context": "[https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld](https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld)",
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/draft/schema/core/v2/context.jsonld",
         "@type": "beckn:Buyer",
         "beckn:id": "user-123",
         "beckn:role": "BUYER",
@@ -3463,7 +3533,7 @@ Satisfied, Aisha resumes her trip with time to spare.
             "unitQuantity": 2.5
           },
           "beckn:acceptedOffer": {
-            "@context": "[https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld](https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld)",
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
             "@type": "beckn:Offer",
             "beckn:id": "offer-ccs2-60kw-kwh",
             "beckn:descriptor": {
@@ -3503,7 +3573,7 @@ Satisfied, Aisha resumes her trip with time to spare.
             "type": "UNIT",
             "value": 112.5,
             "currency": "INR",
-            "description": "Base charging session cost (45 INR/kWh × 2.5 kWh)"
+            "description": "Base charging session cost (45 INR/kWh \u00d7 2.5 kWh)"
           },
           {
             "type": "SURCHARGE",
@@ -3538,15 +3608,15 @@ Satisfied, Aisha resumes her trip with time to spare.
         ]
       },
       "beckn:orderAttributes": {
-        "@context": "[https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/EvChargingSession/v1/context.jsonld](https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/EvChargingSession/v1/context.jsonld)",
+        "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/EvChargingSession/v1/context.jsonld",
         "@type": "ChargingSession",
         "buyerFinderFee": {
           "feeType": "PERCENTAGE",
           "feeValue": 2.5
         },
         "preferences": {
-          "startTime": "1766224800",
-          "endTime": "1766230200"
+          "startTime": "2026-01-04T08:00:00+05:30",
+          "endTime": "2026-01-04T20:00:00+05:30"
         }
       }
     }
@@ -3591,7 +3661,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -3663,6 +3738,7 @@ Satisfied, Aisha resumes her trip with time to spare.
         },
         "beckn:beneficiary": "BPP",
         "beckn:paymentStatus": "INITIATED",
+        "beckn:upiTransactionId": "UPI123456789012",
         "beckn:paymentAttributes": {
           "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
           "@type": "PaymentSettlement",
@@ -3721,7 +3797,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -3801,6 +3882,7 @@ Satisfied, Aisha resumes her trip with time to spare.
           "WALLET"
         ],
         "beckn:paymentStatus": "INITIATED",
+        "beckn:upiTransactionId": "UPI123456789012",
         "beckn:paymentAttributes": {
           "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
           "@type": "PaymentSettlement",
@@ -3867,7 +3949,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -3942,7 +4029,8 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -3987,7 +4075,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4062,7 +4155,8 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -4107,7 +4201,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4195,7 +4294,8 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -4240,7 +4340,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4314,7 +4419,8 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -4359,7 +4465,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4434,7 +4545,8 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -4479,7 +4591,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4553,7 +4670,8 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -4598,7 +4716,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4672,7 +4795,8 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -4712,7 +4836,12 @@ Satisfied, Aisha resumes her trip with time to spare.
       "beckn:buyer": {
         "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
         "@type": "beckn:Buyer",
-        "beckn:id": "user-123"
+        "beckn:id": "user-123",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4757,7 +4886,12 @@ Satisfied, Aisha resumes her trip with time to spare.
       "beckn:buyer": {
         "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
         "@type": "beckn:Buyer",
-        "beckn:id": "user-123"
+        "beckn:id": "user-123",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4887,7 +5021,12 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -4959,7 +5098,8 @@ Satisfied, Aisha resumes her trip with time to spare.
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -5434,7 +5574,6 @@ In instances where the User initiates the cancellation of an existing reservatio
     "version": "2.0.0",
     "domain": "beckn.one:deg:ev-charging",
     "action": "cancel",
-    "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
     "bap_uri": "https://api.example-bap.com/pilot/bap/energy/v2",
     "bpp_id": "example-bpp.com",
@@ -5455,7 +5594,12 @@ In instances where the User initiates the cancellation of an existing reservatio
         "beckn:buyer": {
           "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
           "@type": "beckn:Buyer",
-          "beckn:id": "user-123"
+          "beckn:id": "user-123",
+          "beckn:buyerAttributes": {
+            "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+            "@type": "BuyerPaymentInfo",
+            "vpa": "ravikumar@upi"
+          }
         },
         "beckn:orderItems": [
           {
@@ -5489,7 +5633,6 @@ Conversely, in scenarios where the Provider is unable to fulfill the obligation,
 {
   "context": {
     "version": "2.0.0",
-    "domain": "beckn.one:deg:ev-charging",
     "action": "on_cancel",
     "domain": "beckn.one:deg:ev-charging",
     "bap_id": "example-bap.com",
@@ -5514,7 +5657,12 @@ Conversely, in scenarios where the Provider is unable to fulfill the obligation,
         "beckn:id": "user-123",
         "beckn:role": "BUYER",
         "beckn:displayName": "Ravi Kumar",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -5589,7 +5737,8 @@ Conversely, in scenarios where the Provider is unable to fulfill the obligation,
         "beckn:txnRef": "TXN-987654321",
         "beckn:paidAt": "2025-12-19T17:35:00Z",
         "beckn:beneficiary": "BUYER",
-        "beckn:paymentStatus": "REFUNDED"
+        "beckn:paymentStatus": "REFUNDED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -5635,7 +5784,12 @@ Operational anomalies or technical faults at the charging station may occasional
       "beckn:buyer": {
         "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/core/v2/context.jsonld",
         "@type": "beckn:Buyer",
-        "beckn:id": "user-123"
+        "beckn:id": "user-123",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -5707,7 +5861,8 @@ Operational anomalies or technical faults at the charging station may occasional
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },
@@ -5755,7 +5910,12 @@ During an active charging session, the user may elect to voluntarily terminate t
         "beckn:displayName": "Ravi Kumar",
         "beckn:telephone": "+91-9876543210",
         "beckn:email": "ravi.kumar@example.com",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -5827,7 +5987,8 @@ During an active charging session, the user may elect to voluntarily terminate t
         "beckn:txnRef": "TXN-123456789",
         "beckn:paidAt": "2025-12-19T10:05:00Z",
         "beckn:beneficiary": "BPP",
-        "beckn:paymentStatus": "COMPLETED"
+        "beckn:paymentStatus": "COMPLETED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },

@@ -25,7 +25,12 @@
         "beckn:id": "user-123",
         "beckn:role": "BUYER",
         "beckn:displayName": "Ravi Kumar",
-        "beckn:taxID": "GSTIN29ABCDE1234F1Z5"
+        "beckn:taxID": "GSTIN29ABCDE1234F1Z5",
+        "beckn:buyerAttributes": {
+          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
+          "@type": "BuyerPaymentInfo",
+          "vpa": "ravikumar@upi"
+        }
       },
       "beckn:orderItems": [
         {
@@ -100,7 +105,8 @@
         "beckn:txnRef": "TXN-987654321",
         "beckn:paidAt": "2025-12-19T17:35:00Z",
         "beckn:beneficiary": "BUYER",
-        "beckn:paymentStatus": "REFUNDED"
+        "beckn:paymentStatus": "REFUNDED",
+        "beckn:upiTransactionId": "UPI123456789012"
       }
     }
   },

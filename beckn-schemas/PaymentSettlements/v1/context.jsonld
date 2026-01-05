@@ -24,6 +24,7 @@
         "bankName": "beckn:bankName",
         "vpa": "beckn:vpa",
         "paymentURL": "schema:url",
+        "BuyerPaymentInfo": "beckn:BuyerPaymentInfo",
         "BPP": "beckn:BeneficiaryTypeBPP",
         "BAP": "beckn:BeneficiaryTypeBAP"
     },

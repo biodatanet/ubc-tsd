@@ -1533,6 +1533,14 @@
       "schema:rangeIncludes": "schema:Text"
     },
     {
+      "@id": "beckn:upiTransactionId",
+      "@type": "rdf:Property",
+      "rdfs:label": "UPI Transaction ID",
+      "rdfs:comment": "BAP-generated UPI transaction reference ID for payment tracking.",
+      "rdfs:domain": "beckn:Payment",
+      "schema:rangeIncludes": "schema:Text"
+    },
+    {
       "@id": "beckn:paidAt",
       "@type": "rdf:Property",
       "rdfs:label": "Paid at",

@@ -100,6 +100,7 @@
         },
         "beckn:beneficiary": "BAP",
         "beckn:paymentStatus": "INITIATED",
+        "beckn:upiTransactionId": "UPI123456789012",
         "beckn:paymentAttributes": {
           "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
           "@type": "PaymentSettlement",

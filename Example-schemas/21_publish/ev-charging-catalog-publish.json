@@ -42,8 +42,8 @@
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "06:00:00",
-                "schema:endTime": "22:00:00"
+                "schema:startTime": "2026-01-04T06:00:00+05:30",
+                "schema:endTime": "2026-01-04T22:00:00+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -118,8 +118,8 @@
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "00:00:00",
-                "schema:endTime": "23:59:59"
+                "schema:startTime": "2026-01-04T00:00:00+05:30",
+                "schema:endTime": "2026-01-04T23:59:59+05:30"
               }
             ],
             "beckn:rateable": true,
@@ -195,8 +195,8 @@
             "beckn:availabilityWindow": [
               {
                 "@type": "beckn:TimePeriod",
-                "schema:startTime": "08:00:00",
-                "schema:endTime": "20:00:00"
+                "schema:startTime": "2026-01-04T08:00:00+05:30",
+                "schema:endTime": "2026-01-04T20:00:00+05:30"
               }
             ],
             "beckn:rateable": true,
