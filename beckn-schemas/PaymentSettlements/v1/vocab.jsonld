@@ -101,6 +101,12 @@
             ],
             "schema:name": "BAP",
             "schema:identifier": "BAP"
+        },
+        {
+            "@id": "beckn:BuyerPaymentInfo",
+            "@type": "rdfs:Class",
+            "rdfs:label": "Buyer Payment Info",
+            "rdfs:comment": "Payment-related information for the buyer, including UPI VPA. Attached to Buyer.buyerAttributes."
         }
     ]
 }

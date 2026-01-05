@@ -882,6 +882,11 @@ components:
           type: string
           description: PSP/gateway/bank transaction reference
           x-jsonld: { "@id": "schema:transactionNumber" }
+        beckn:upiTransactionId:
+          type: string
+          description: BAP-generated UPI transaction reference ID for payment tracking
+          example: "UPI123456789012"
+          x-jsonld: { "@id": "beckn:upiTransactionId" }
         beckn:paidAt:
           type: string
           format: date-time
