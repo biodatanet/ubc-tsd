@@ -101,8 +101,8 @@
         "beckn:beneficiary": "BAP",
         "beckn:paymentStatus": "INITIATED",
         "beckn:paymentAttributes": {
-          "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-new/refs/heads/main/schema/PaymentSettlement/v1/context.jsonld",
-          "@type": "PaymentSettlement",
+          "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
+          "@type": "UBCPaymentAttributes",
           "settlementAccounts": [
             {
               "beneficiaryId": "example-bap.com",
