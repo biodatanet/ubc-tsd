@@ -106,6 +106,7 @@
         "beckn:paymentAttributes": {
           "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
           "@type": "UBCPaymentAttributes",
+          "upiTransactionId": "UPI123456789012",
           "settlementAccounts": [
             {
               "beneficiaryId": "example-bap.com",
