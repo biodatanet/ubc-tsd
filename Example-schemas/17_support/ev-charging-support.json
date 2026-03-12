@@ -26,6 +26,17 @@
         "PHONE",
         "WHATSAPP"
       ]
+    },
+    "feedback": {
+      "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
+      "@type": "SupportFeedback",
+      "comments": "Charging session stopped unexpectedly at 40% battery but I was billed the full estimated amount. The charger displayed an error code E-204.",
+      "tags": [
+        "charging-interrupted",
+        "billing-dispute",
+        "charger-malfunction"
+      ],
+      "supportStatus": "OPEN"
     }
   },
   "error": {}
