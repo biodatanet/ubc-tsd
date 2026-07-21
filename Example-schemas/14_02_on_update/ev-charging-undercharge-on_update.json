@@ -19,6 +19,19 @@
       "beckn:id": "order-ev-charging-001",
       "beckn:orderStatus": "COMPLETED",
       "beckn:seller": "cpo1.com",
+      "beckn:orderAttributes": {
+        "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
+        "@type": "UBCInvoice",
+        "invoiceId": "invoice-ev-charging-001",
+        "totals": {
+          "currency": "INR",
+          "value": 90.0
+        },
+        "invoiceAttributes": {
+          "@type": "UBCInvoiceAttributes",
+          "invoiceUrl": "https://example-bpp.com/charging/session/order-ev-charging-001/fee"
+        }
+      },
       "beckn:buyer": {
         "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/core-v2.0.0-rc/schema/core/v2/context.jsonld",
         "@type": "beckn:Buyer",
@@ -47,13 +60,13 @@
             "type": "UNIT",
             "value": 90.0,
             "currency": "INR",
-            "description": "Base charging session cost (45 INR/kWh \u00d7 2.0 kWh) \u2014 actual consumption"
+            "description": "Base charging session cost"
           },
           {
             "type": "SURCHARGE",
             "value": 0.0,
             "currency": "INR",
-            "description": "Surge price (not applicable \u2014 undercharge session)"
+            "description": "Surge price"
           },
           {
             "type": "DISCOUNT",
@@ -71,7 +84,7 @@
             "type": "DISCOUNT",
             "value": -53.95,
             "currency": "INR",
-            "description": "Refund adjustment \u2014 excess amount to be refunded (\u20b9143.95 paid \u2212 \u20b990.00 actual = \u20b953.95 refund)"
+            "description": "Refund adjustment"
           }
         ]
       },
@@ -103,20 +116,6 @@
           "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
           "@type": "UBCPaymentAttributes",
           "upiTransactionId": "UPI123456789012"
-        }
-      },
-      "beckn:invoice": "invoice-ev-charging-001",
-      "beckn:orderAttributes": {
-        "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
-        "@type": "UBCInvoice",
-        "invoiceId": "invoice-ev-charging-001",
-        "totals": {
-          "currency": "INR",
-          "value": 90.0
-        },
-        "invoiceAttributes": {
-          "@type": "UBCInvoiceAttributes",
-          "invoiceUrl": "https://example-bpp.com/charging/session/order-ev-charging-001/fee"
         }
       }
     }
