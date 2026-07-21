@@ -98,19 +98,6 @@
           "sessionStatus": "COMPLETED"
         }
       },
-      "beckn:invoice": {
-        "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
-        "@type": "UBCInvoice",
-        "invoiceId": "invoice-ev-charging-001",
-        "totals": {
-          "currency": "INR",
-          "value": 287.9
-        },
-        "invoiceAttributes": {
-          "@type": "UBCInvoiceAttributes",
-          "invoiceUrl": "https://example-bpp.com/charging/session/order-ev-charging-001/fee"
-        }
-      },
       "beckn:payment": {
         "@context": "https://raw.githubusercontent.com/beckn/protocol-specifications-v2/refs/heads/core-v2.0.0-rc/schema/core/v2/context.jsonld",
         "@type": "beckn:Payment",
@@ -128,6 +115,20 @@
           "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
           "@type": "UBCPaymentAttributes",
           "upiTransactionId": "UPI123456789012"
+        }
+      },
+      "beckn:invoice": "invoice-ev-charging-001",
+      "beckn:orderAttributes": {
+        "@context": "https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld",
+        "@type": "UBCInvoice",
+        "invoiceId": "invoice-ev-charging-001",
+        "totals": {
+          "currency": "INR",
+          "value": 287.9
+        },
+        "invoiceAttributes": {
+          "@type": "UBCInvoiceAttributes",
+          "invoiceUrl": "https://example-bpp.com/charging/session/order-ev-charging-001/fee"
         }
       }
     }
