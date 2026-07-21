@@ -1,183 +1,224 @@
 Field Path,Field Name,Data Type,Required,Description,Example Value,Used In APIs,Notes
-context.version,Version,String,Yes,Beckn protocol version,2.0.0,All,Always 2.0.0 for v2 APIs
-context.action,Action,String,Yes,The API action being performed,"discover, on_discover, select, on_select, init, on_init, confirm, on_confirm, update, on_update, track, on_track, on_status, rating, on_rating, support, on_support, cancel, on_cancel",All,Defines which API endpoint is being called
-context.domain,Domain,String,Yes,Domain/use case identifier,beckn.one:deg:ev-charging:*,All,Identifies EV charging domain
-context.location.country.code,Country Code,String,Yes,ISO 3166-1 alpha-3 country code,IND,All,Three-letter country code
-context.location.city.code,City Code,String,Yes,City code with standard prefix,std:080,All,Format: std:<STD_code>
-context.timestamp,Timestamp,DateTime,Yes,Request/response timestamp,2024-01-15T10:30:00Z,All,ISO 8601 format with timezone
-context.transaction_id,Transaction ID,UUID,Yes,Unique identifier for the transaction,2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002,All,Remains same across request-response pairs
-context.message_id,Message ID,UUID,Yes,Unique identifier for each message,a1eabf26-29f5-4a01-9d4e-4c5c9d1a3d02,All,Unique for each request/response
-context.bap_id,BAP ID,String,Yes,Buyer Application Platform identifier,bap.example.com,All,Domain name of BAP
-context.bap_uri,BAP URI,URL,Yes,BAP callback endpoint,https://bap.example.com,All,Full URL for BAP callbacks
-context.bpp_id,BPP ID,String,No,Beckn Provider Platform identifier,bpp.example.com,"on_discover, on_select, on_init, on_confirm, on_update, on_track, on_status, on_rating, on_support, on_cancel",Present in responses from BPP
-context.bpp_uri,BPP URI,URL,No,BPP endpoint,https://bpp.example.com,"on_discover, on_select, on_init, on_confirm, on_update, on_track, on_status, on_rating, on_support, on_cancel",Full URL for BPP
-context.ttl,Time To Live,Duration,Yes,Maximum time to wait for response,PT30S,All,ISO 8601 duration format
-context.schema_context,Schema Context,Array[URL],Yes,JSON-LD context references,https://raw.githubusercontent.com/.../context.jsonld,All,References to schema definitions
-message.text_search,Text Search,String,No,Free-text search query,EV charger fast charging,discover,Natural language search query
-message.spatial,Spatial Filters,Array[Object],No,Geographic search filters,[{op: s_dwithin...}],discover,CQL2 spatial operators for location-based search
+context.version,Version,String,Yes,Beckn protocol version,2.0.0,"cancel, catalog_publish, confirm, discover, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Always 2.0.0 for v2 APIs
+context.action,Action,String,Yes,The API action being performed,"discover, on_discover, select, on_select, init, on_init, confirm, on_confirm, update, on_update, track, on_track, on_status, rating, on_rating, support, on_support, cancel, on_cancel","cancel, catalog_publish, confirm, discover, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Defines which API endpoint is being called
+context.domain,Domain,String,Yes,Domain/use case identifier,beckn.one:deg:ev-charging,"cancel, catalog_publish, confirm, discover, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Identifies EV charging domain
+context.timestamp,Timestamp,DateTime,Yes,Request/response timestamp,2024-01-15T10:30:00Z,"cancel, catalog_publish, confirm, discover, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",ISO 8601 format with timezone
+context.transaction_id,Transaction ID,UUID,Yes,Unique identifier for the transaction,2b4d69aa-22e4-4c78-9f56-5a7b9e2b2002,"cancel, catalog_publish, confirm, discover, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Remains same across request-response pairs
+context.message_id,Message ID,UUID,Yes,Unique identifier for each message,a1eabf26-29f5-4a01-9d4e-4c5c9d1a3d02,"cancel, catalog_publish, confirm, discover, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Unique for each request/response
+context.bap_id,BAP ID,String,Yes,Buyer Application Platform identifier,bap.example.com,"cancel, confirm, discover, init, on_cancel, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Domain name of BAP
+context.bap_uri,BAP URI,URL,Yes,BAP callback endpoint,https://bap.example.com/bap,"cancel, confirm, discover, init, on_cancel, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Full URL for BAP callbacks
+context.bpp_id,BPP ID,String,Yes,Beckn Provider Platform identifier,bpp.example.com,"cancel, catalog_publish, confirm, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Present in both requests (select onward) and all BPP responses
+context.bpp_uri,BPP URI,URL,Yes,BPP endpoint,https://bpp.example.com,"cancel, catalog_publish, confirm, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Full URL for BPP
+context.ttl,Time To Live,Duration,Yes,Maximum time to wait for response,PT30S,"cancel, catalog_publish, confirm, discover, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",ISO 8601 duration format
+context.schema_context,Schema Context,Array[URL],Yes,JSON-LD context references for item schema,https://raw.githubusercontent.com/.../EvChargingService/v1/context.jsonld,discover,Only present in discover to declare item schema namespace
+error,Error,Object,Yes,Error object (empty on success or populated on error),{},"cancel, catalog_publish, confirm, discover, init, on_cancel, on_catalog_publish, on_confirm, on_discover, on_init, on_rating, on_select, on_status, on_support, on_track, on_update, rating, select, status, support, track, update",Always present; empty object on success
+error.code,Error Code,String,No,Error code,40000,on_select,Populated when BPP rejects request
+error.message,Error Message,String,No,Human-readable error summary,Generic business error,on_select,Top-level error description
+error.details.description,Error Detail Description,String,No,Detailed error description,Requested slot overlaps with an existing booking,on_select,More specific error context
+message.filters,Filters,Object,No,JSONPath filter conditions for discovery,{type: jsonpath expression: ...},discover,Used to narrow down catalog items
+message.filters.type,Filter Type,String,Yes,Type of filter expression,jsonpath,discover,Always jsonpath for current schemas
+message.filters.expression,Filter Expression,String,Yes,JSONPath filtering logic,$[?(@.beckn:itemAttributes.qrIdentifier == 'https://charge.ecopower.in/cs01-ccs2')],discover,"JSONPath expression applied to catalog items; used for QR lookup, connector type, vehicle spec, availability window filters"
+message.spatial,Spatial Filters,Array[Object],No,Geographic search filters using CQL2,[{op: s_dwithin...}],discover,CQL2 spatial operators for location-based search
 message.spatial[].op,Spatial Operator,String,Yes,Spatial operation type,"s_dwithin, s_contains, s_intersects",discover,CQL2 spatial operator
-message.spatial[].targets,Targets JSONPath,String,Yes,JSONPath to target fields,$['beckn:availableAt'][*]['geo'],discover,Which fields to apply spatial filter to
+message.spatial[].targets,Targets JSONPath,String,Yes,JSONPath to the geo field in catalog items,$['beckn:itemAttributes.chargingStation.serviceLocation.geo'],discover,Which geo field to apply spatial filter to; alternatives: $['beckn:availableAt'][*]['geo']
+message.spatial[].geometry,Geometry,Object,Yes,GeoJSON geometry for spatial filter,{type: Point coordinates: [77.59 12.94]},discover,GeoJSON geometry object
 message.spatial[].geometry.type,Geometry Type,String,Yes,GeoJSON geometry type,"Point, Polygon, LineString",discover,Type of geographic shape
-message.spatial[].geometry.coordinates,Coordinates,Array,Yes,Geographic coordinates,[77.5900 12.9400],"discover, on_discover",Longitude and latitude pairs
-message.spatial[].distanceMeters,Distance in Meters,Number,No,Radius for distance queries,10000,discover,For s_dwithin operator
-message.filters.expression,Filter Expression,String,No,JSONPath filtering logic,$[?(@.itemAttributes.connectorType=='CCS2')],discover,Complex filtering using JSONPath
-message.catalogs,Catalogs,Array[Object],Yes,Array of catalog objects,[{@type: beckn:Catalog...}],on_discover,Contains available items/services
-message.catalogs[].@context,Context,URL,Yes,JSON-LD context,https://becknprotocol.io/.../Catalog/schema-context.jsonld,on_discover,Schema definition reference
-message.catalogs[].@type,Type,String,Yes,JSON-LD type,beckn:Catalog,on_discover,Always beckn:Catalog
-message.catalogs[].beckn:descriptor,Descriptor,Object,Yes,Catalog description,{schema:name: EV Charging Services Network},on_discover,Human-readable catalog information
-message.catalogs[].beckn:descriptor.schema:name,Name,String,Yes,Display name,EV Charging Services Network,on_discover,Catalog name shown to users
-message.catalogs[].beckn:descriptor.beckn:shortDesc,Short Description,String,No,Brief description,Comprehensive network of fast charging stations,on_discover,One-line description
-message.catalogs[].beckn:validity,Validity Period,Object,No,Time period for catalog validity,{schema:startDate schema:endDate},on_discover,When catalog is valid
-message.catalogs[].beckn:validity.schema:startDate,Start Date,DateTime,Yes,Validity start time,2024-10-01T00:00:00Z,on_discover,ISO 8601 format
-message.catalogs[].beckn:validity.schema:endDate,End Date,DateTime,Yes,Validity end time,2025-01-15T23:59:59Z,on_discover,ISO 8601 format
-message.catalogs[].beckn:items,Items,Array[Object],Yes,Array of available items/services,[{@type: beckn:Item...}],on_discover,Charging stations and services
-beckn:items[].@context,Context,URL,Yes,JSON-LD context,https://becknprotocol.io/.../Item/schema-context.jsonld,on_discover,Schema definition reference
-beckn:items[].@type,Type,String,Yes,JSON-LD type,beckn:Item,on_discover,Always beckn:Item
-beckn:items[].beckn:id,Item ID,String,Yes,Unique item identifier,ev-charger-ccs2-001,"on_discover, select, on_select, init, on_init, confirm, on_confirm, update, on_update",Unique across provider
-beckn:items[].beckn:descriptor,Descriptor,Object,Yes,Item description,{schema:name beckn:shortDesc beckn:longDesc},on_discover,Human-readable item information
-beckn:items[].beckn:descriptor.schema:name,Name,String,Yes,Display name,DC Fast Charger - CCS2 (60kW),on_discover,Item name shown to users
-beckn:items[].beckn:descriptor.beckn:shortDesc,Short Description,String,No,Brief description,High-speed DC charging station,on_discover,One-line summary
-beckn:items[].beckn:descriptor.beckn:longDesc,Long Description,String,No,Detailed description,Ultra-fast DC charging station supporting CCS2...,on_discover,Full description with features
-beckn:items[].beckn:category,Category,Object,Yes,Item category classification,{schema:codeValue: ev-charging},on_discover,Categorization for filtering
-beckn:items[].beckn:category.schema:codeValue,Code Value,String,Yes,Category code,ev-charging,on_discover,Standard category code
-beckn:items[].beckn:category.schema:name,Name,String,Yes,Category name,EV Charging,on_discover,Human-readable category
-beckn:items[].beckn:availableAt,Available At Locations,Array[Object],Yes,Geographic locations where available,[{geo address}],on_discover,Physical locations
-beckn:items[].beckn:availableAt[].geo,Geo Location,Object,Yes,GeoJSON location,{type: Point coordinates: [77.5946 12.9716]},on_discover,GeoJSON format
-beckn:items[].beckn:availableAt[].geo.type,Geometry Type,String,Yes,GeoJSON type,Point,on_discover,Usually Point for stations
-beckn:items[].beckn:availableAt[].geo.coordinates,Coordinates,Array[Number],Yes,Longitude and latitude,[77.5946 12.9716],on_discover,[longitude latitude]
-beckn:items[].beckn:availableAt[].address,Address,Object,Yes,Postal address,{streetAddress addressLocality...},on_discover,Full postal address
-beckn:items[].beckn:availableAt[].address.streetAddress,Street Address,String,Yes,Street address,EcoPower BTM Hub 100 Ft Rd,on_discover,Street and building info
-beckn:items[].beckn:availableAt[].address.addressLocality,City/Locality,String,Yes,City or locality,Bengaluru,on_discover,City name
-beckn:items[].beckn:availableAt[].address.addressRegion,State/Region,String,Yes,State or region,Karnataka,on_discover,State/province name
-beckn:items[].beckn:availableAt[].address.postalCode,Postal Code,String,Yes,ZIP/postal code,560076,on_discover,Postal code
-beckn:items[].beckn:availableAt[].address.addressCountry,Country,String,Yes,Country code,IN,on_discover,ISO 3166-1 alpha-2
-beckn:items[].beckn:availabilityWindow,Availability Window,Object,No,Operating hours,{schema:startTime: 06:00:00 schema:endTime: 22:00:00},on_discover,Daily operating hours
-beckn:items[].beckn:availabilityWindow.schema:startTime,Start Time,Time,Yes,Opening time,06:00:00,on_discover,HH:MM:SS format
-beckn:items[].beckn:availabilityWindow.schema:endTime,End Time,Time,Yes,Closing time,22:00:00,on_discover,HH:MM:SS format
-beckn:items[].beckn:rateable,Rateable,Boolean,Yes,Whether item can be rated,true,on_discover,Allows customer ratings
-beckn:items[].beckn:rating,Rating,Object,No,Rating information,{beckn:ratingValue: 4.5 beckn:ratingCount: 128},on_discover,Aggregate rating data
-beckn:items[].beckn:rating.beckn:ratingValue,Rating Value,Number,Yes,Average rating score,4.5,on_discover,Usually 0-5 scale
-beckn:items[].beckn:rating.beckn:ratingCount,Rating Count,Integer,Yes,Number of ratings,128,on_discover,Total ratings received
-beckn:items[].beckn:isActive,Is Active,Boolean,Yes,Whether item is currently active,true,on_discover,Active status
-beckn:items[].beckn:provider,Provider,Object,Yes,Provider information,{beckn:id beckn:descriptor},on_discover,Charging station operator
-beckn:items[].beckn:provider.beckn:id,Provider ID,String,Yes,Provider identifier,ecopower-charging,on_discover,Unique provider ID
-beckn:items[].beckn:provider.beckn:descriptor,Descriptor,Object,Yes,Provider details,{schema:name: EcoPower Charging Pvt Ltd},on_discover,Provider name and info
-beckn:items[].beckn:itemAttributes,Item Attributes,Object,Yes,EV-specific attributes,{@type: ChargingService...},"on_discover, select",ChargingService schema
-beckn:itemAttributes.@context,Context,URL,Yes,ChargingService context,https://raw.githubusercontent.com/.../EvChargingService/v1/context.jsonld,on_discover,Schema reference
-beckn:itemAttributes.@type,Type,String,Yes,Type identifier,ChargingService,on_discover,Always ChargingService
-beckn:itemAttributes.connectorType,Connector Type,String,Yes,Charging connector type,"CCS2, CHAdeMO, Type2, GBT",on_discover,Standard connector types
-beckn:itemAttributes.maxPowerKW,Max Power (kW),Number,Yes,Maximum charging power,60,on_discover,Peak power in kilowatts
-beckn:itemAttributes.minPowerKW,Min Power (kW),Number,No,Minimum charging power,5,on_discover,Minimum power in kilowatts
-beckn:itemAttributes.socketCount,Socket Count,Integer,Yes,Number of sockets,2,on_discover,Available charging sockets
-beckn:itemAttributes.reservationSupported,Reservation Supported,Boolean,Yes,Whether reservations allowed,true,on_discover,Advance booking capability
-beckn:itemAttributes.acceptedPaymentMethod,Accepted Payment Methods,Array[String],Yes,"Payment types accepted","[schema:UPI, schema:CreditCard, schema:Wallet]",on_discover,Supported payment methods
-beckn:itemAttributes.serviceLocation,Service Location,Object,Yes,Location details,{geo address},on_discover,Where service is provided
-beckn:itemAttributes.amenityFeature,Amenity Features,Array[String],No,Available amenities,"[RESTAURANT, RESTROOM, WI-FI]",on_discover,Facilities at location
-beckn:itemAttributes.ocppId,OCPP ID,String,No,Open Charge Point Protocol ID,IN-ECO-BTM-01,on_discover,OCPP station identifier
-beckn:itemAttributes.evseId,EVSE ID,String,No,Electric Vehicle Supply Equipment ID,IN*ECO*BTM*01*CCS2*A,on_discover,ISO 15118 format
-beckn:itemAttributes.roamingNetwork,Roaming Network,String,No,Roaming network name,GreenRoam,on_discover,Interoperability network
-beckn:itemAttributes.parkingType,Parking Type,String,No,Type of parking location,"Mall, Street, Highway",on_discover,Parking category
-beckn:itemAttributes.connectorId,Connector ID,String,No,Physical connector identifier,CCS2-A,on_discover,Unique connector reference
-beckn:itemAttributes.powerType,Power Type,String,Yes,AC or DC power,"AC, DC",on_discover,Type of electrical power
-beckn:itemAttributes.connectorFormat,Connector Format,String,Yes,Socket or cable,"SOCKET, CABLE",on_discover,Physical connector format
-beckn:itemAttributes.chargingSpeed,Charging Speed,String,Yes,Speed classification,"SLOW, FAST, ULTRA_FAST",on_discover,Charging speed category
-beckn:itemAttributes.stationStatus,Station Status,String,Yes,Current availability status,"Available, Charging, Offline",on_discover,Real-time status
-beckn:items[].beckn:offers,Offers,Array[Object],Yes,Pricing offers,[{@type: beckn:Offer...}],on_discover,Available pricing plans
-beckn:offers[].@context,Context,URL,Yes,Offer context,https://becknprotocol.io/.../Offer/schema-context.jsonld,on_discover,Schema reference
-beckn:offers[].@type,Type,String,Yes,Type identifier,beckn:Offer,on_discover,Always beckn:Offer
-beckn:offers[].beckn:id,Offer ID,String,Yes,Unique offer identifier,eco-charge-offer-ccs2-60kw-kwh,"on_discover, select",Offer reference ID
-beckn:offers[].beckn:descriptor,Descriptor,Object,Yes,Offer description,{schema:name: Per-kWh Tariff - CCS2 60kW},on_discover,Human-readable offer info
-beckn:offers[].beckn:items,Items,Array[Object],Yes,Items this offer applies to,[{beckn:id: ev-charger-ccs2-001}],on_discover,Item references
-beckn:offers[].beckn:price,Price,Object,Yes,Pricing details,{@type: schema:PriceSpecification...},on_discover,Price structure
-beckn:price.@type,Type,String,Yes,Price type,schema:PriceSpecification,on_discover,Schema.org type
-beckn:price.schema:priceCurrency,Currency,String,Yes,Currency code,INR,on_discover,ISO 4217 currency code
-beckn:price.schema:price,Price,Number,Yes,Unit price,18.00,on_discover,Price per unit
-beckn:price.schema:unitCode,Unit Code,String,Yes,Unit of measurement,KWH,on_discover,UN/CEFACT unit codes
-beckn:price.schema:valueAddedTaxIncluded,VAT Included,Boolean,Yes,Whether VAT is included,false,on_discover,Tax inclusion status
-message.order,Order,Object,Yes,Order details,{beckn:id beckn:status...},"select, on_select, init, on_init, confirm, on_confirm, update, on_update, track, on_track, on_status, rating, support, cancel",Complete order information
-message.order.@context,Context,URL,Yes,Order context,https://becknprotocol.io/.../Order/schema-context.jsonld,"select, on_select, init, on_init, confirm, on_confirm",Schema reference
-message.order.@type,Type,String,Yes,Type identifier,beckn:Order,"select, on_select, init, on_init, confirm, on_confirm",Always beckn:Order
-message.order.beckn:id,Order ID,String,Yes,Unique order identifier,order-12345,"select, on_select, init, on_init, confirm, on_confirm, update, on_update, track, on_track, on_status, rating, support, cancel",BAP-assigned in select; BPP-assigned in on_confirm
-message.order.beckn:status,Order Status,String,Yes,Current order status,"PENDING, CONFIRMED, ACTIVE, COMPLETED, CANCELLED","on_select, on_init, on_confirm, on_update, on_status",Order lifecycle status
-message.order.beckn:orderNumber,Order Number,String,No,Human-readable order number,ORD-2024-001,on_confirm,Display order number
-message.order.beckn:buyer,Buyer,Object,Yes,Buyer information,{@type: beckn:Party...},"init, on_init, confirm, on_confirm",Customer details
-beckn:buyer.@context,Context,URL,Yes,Party context,https://becknprotocol.io/.../Party/schema-context.jsonld,"init, on_init",Schema reference
-beckn:buyer.@type,Type,String,Yes,Type identifier,beckn:Party,"init, on_init",Always beckn:Party
-beckn:buyer.schema:name,Name,String,Yes,Buyer name,Rajesh Kumar,"init, on_init, confirm, on_confirm",Full name
-beckn:buyer.schema:email,Email,String,Yes,Email address,rajesh.kumar@example.com,"init, on_init, confirm, on_confirm",Contact email
-beckn:buyer.schema:telephone,Phone,String,Yes,Phone number,+91-9876543210,"init, on_init, confirm, on_confirm",Contact phone
-beckn:buyer.schema:address,Address,Object,Yes,Billing address,{streetAddress addressLocality...},"init, on_init",Full postal address
-beckn:buyer.beckn:taxId,Tax ID,String,No,Tax identification number,GSTIN29ABCDE1234F1Z5,"init, on_init",GST/VAT number
-message.order.beckn:orderItems,Order Items,Array[Object],Yes,Items being ordered,[{beckn:id beckn:quantity...}],"select, on_select, init, on_init, confirm, on_confirm",Selected items
-beckn:orderItems[].beckn:id,Item ID,String,Yes,Reference to catalog item,ev-charger-ccs2-001,"select, on_select, init, on_init, confirm, on_confirm",Must match catalog item ID
-beckn:orderItems[].beckn:quantity,Quantity,Object,Yes,Quantity details,{beckn:count: 2.5 beckn:unitCode: KWH},"select, on_select, init, on_init, confirm, on_confirm",Amount to purchase
-beckn:quantity.beckn:count,Count,Number,Yes,Quantity amount,2.5,"select, on_select, init, on_init, confirm, on_confirm",Numeric value
-beckn:quantity.beckn:unitCode,Unit Code,String,Yes,Unit of measurement,KWH,"select, on_select, init, on_init, confirm, on_confirm",UN/CEFACT codes
-beckn:orderItems[].beckn:offer,Offer,Object,Yes,Selected offer,{beckn:id: eco-charge-offer...},"select, on_select, init, on_init, confirm, on_confirm",Pricing plan
-message.order.beckn:fulfillments,Fulfillments,Array[Object],Yes,Fulfillment details,[{beckn:id beckn:status...}],"select, on_select, init, on_init, confirm, on_confirm, update, on_update, track, on_track, on_status",How order will be fulfilled
-beckn:fulfillments[].beckn:id,Fulfillment ID,String,Yes,Unique fulfillment identifier,fulfillment-001,"select, on_select, init, on_init, confirm, on_confirm, update, on_update",Reference ID
-beckn:fulfillments[].beckn:status,Fulfillment Status,String,Yes,Current status,"PENDING, ACTIVE, COMPLETED, CANCELLED","on_select, on_init, on_confirm, on_update, on_status",Fulfillment state
-beckn:fulfillments[].beckn:deliveryMethod,Delivery Method,String,Yes,Fulfillment type,RESERVATION,"select, on_select, init, on_init, confirm, on_confirm",How service is delivered
-beckn:fulfillments[].beckn:start,Start,Object,Yes,Start details,{beckn:time beckn:location...},"select, on_select, init, on_init, confirm, on_confirm, update, on_update",When/where fulfillment starts
-beckn:fulfillments[].beckn:start.beckn:time,Start Time,Object,Yes,Start time details,{beckn:timestamp beckn:range},select,Scheduled start time
-beckn:fulfillments[].beckn:start.beckn:location,Start Location,Object,Yes,Start location,{beckn:id geo address},"select, on_select, init, on_init",Where service begins
-beckn:fulfillments[].beckn:end,End,Object,No,End details,{beckn:time},"select, on_select, init, on_init",When fulfillment ends
-beckn:fulfillments[].beckn:trackingAction,Tracking Action,Object,No,Tracking details,{@type: schema:TrackAction...},"on_track, on_status",Real-time tracking info
-beckn:trackingAction.@type,Type,String,Yes,Action type,schema:TrackAction,on_track,Schema.org type
-beckn:trackingAction.schema:target,Target,Object,Yes,Tracking target,{@type: schema:EntryPoint...},on_track,Where to track
-beckn:trackingAction.schema:target.schema:urlTemplate,URL Template,String,Yes,Tracking URL,https://track.example.com/session/SESSION-123,on_track,Link to tracking page
-beckn:trackingAction.schema:object,Object,Object,Yes,What is being tracked,{schema:identifier: RESERVATION-12345},on_track,Tracked entity
-beckn:fulfillments[].beckn:fulfillmentAttributes,Fulfillment Attributes,Object,No,EV-specific fulfillment data,{@type: ChargingSession...},"select, on_select, init, on_init, confirm, on_confirm, update, on_update",Charging session details
-beckn:fulfillmentAttributes.@context,Context,URL,Yes,ChargingSession context,https://raw.githubusercontent.com/.../ChargingSession/v1/context.jsonld,select,Schema reference
-beckn:fulfillmentAttributes.@type,Type,String,Yes,Type identifier,ChargingSession,"select, init, update",Always ChargingSession
-beckn:fulfillmentAttributes.sessionId,Session ID,String,No,Charging session identifier,SESSION-123,on_confirm,Assigned by BPP
-beckn:fulfillmentAttributes.sessionStatus,Session Status,String,Yes,Charging session status,"PENDING, ACTIVE, COMPLETED, INTERRUPTED","on_select, on_init, on_confirm, on_update, on_status",Current session state
-beckn:fulfillmentAttributes.authorizationMode,Authorization Mode,String,Yes,How session is authorized,"OTP, RFID, APP",init,Authorization method
-beckn:fulfillmentAttributes.authorizationToken,Authorization Token,String,No,Authorization credential,123456,"init, update",OTP or token value
-beckn:fulfillmentAttributes.vehicleRegistration,Vehicle Registration,String,No,Vehicle registration number,KA01AB1234,init,Vehicle plate number
-beckn:fulfillmentAttributes.vehicleModel,Vehicle Model,String,No,Vehicle model,Tesla Model 3,init,Make and model
-beckn:fulfillmentAttributes.batteryCapacityKWh,Battery Capacity,Number,No,Vehicle battery capacity,75,init,Battery size in kWh
-beckn:fulfillmentAttributes.currentBatteryLevelPercent,Current Battery Level,Number,No,Starting battery percentage,25,init,Battery % at start
-beckn:fulfillmentAttributes.targetBatteryLevelPercent,Target Battery Level,Number,No,Desired battery percentage,80,init,Charging target %
-beckn:fulfillmentAttributes.connectorId,Connector ID,String,Yes,Which connector to use,CCS2-A,"select, init",Physical connector
-beckn:fulfillmentAttributes.chargingPowerKW,Charging Power,Number,No,Current charging power,45.5,on_update,Real-time power in kW
-beckn:fulfillmentAttributes.energyDeliveredKWh,Energy Delivered,Number,No,Total energy consumed,2.3,on_update,Cumulative kWh
-beckn:fulfillmentAttributes.chargingProgressPercent,Charging Progress,Number,No,Completion percentage,65,on_update,Progress 0-100%
-beckn:fulfillmentAttributes.estimatedCompletionTime,Estimated Completion,DateTime,No,Expected end time,2024-01-15T12:45:00Z,on_update,Estimated finish time
-message.order.beckn:orderValue,Order Value,Object,Yes,Total order pricing,{@type: schema:PriceSpecification...},"on_select, on_init, on_confirm, on_update",Order cost breakdown
-beckn:orderValue.@type,Type,String,Yes,Price type,schema:PriceSpecification,on_select,Schema.org type
-beckn:orderValue.schema:priceCurrency,Currency,String,Yes,Currency code,INR,"on_select, on_init, on_confirm, on_update",ISO 4217 code
-beckn:orderValue.schema:price,Total Price,Number,Yes,Total amount,55.00,"on_select, on_init, on_confirm, on_update",Final price
-beckn:orderValue.beckn:components,Price Components,Array[Object],No,Price breakdown,[{beckn:item beckn:title...}],"on_select, on_init, on_confirm, on_update",Itemized costs
-beckn:components[].beckn:item,Item,String,Yes,Component category,"UNIT, FEE, SURCHARGE, DISCOUNT",on_select,Cost type
-beckn:components[].beckn:title,Title,String,Yes,Component description,Energy Charges (2.5 kWh),on_select,Human-readable label
-beckn:components[].schema:price,Price,Number,Yes,Component amount,45.00,on_select,Cost for this component
-message.order.beckn:payment,Payment,Object,Yes,Payment information,{@type: schema:PayAction...},"init, on_init, confirm, on_confirm, on_update",Payment details
-beckn:payment.@context,Context,URL,Yes,Payment context,https://becknprotocol.io/.../Payment/schema-context.jsonld,init,Schema reference
-beckn:payment.@type,Type,String,Yes,Payment type,schema:PayAction,init,Schema.org type
-beckn:payment.schema:name,Payment Name,String,No,Payment description,Charging Session Payment,init,Display name
-beckn:payment.beckn:status,Payment Status,String,Yes,Current payment status,"PENDING, PAID, FAILED, REFUNDED","init, on_init, confirm, on_confirm, on_update",Payment state
-beckn:payment.beckn:paymentURL,Payment URL,URL,No,Payment processing link,https://pay.example.com?order=12345,"init, on_init",Link to payment gateway
-beckn:payment.beckn:method,Payment Method,Object,No,Selected payment method,{beckn:type beckn:details},"confirm, on_confirm",Chosen payment option
-beckn:method.beckn:type,Payment Type,String,Yes,Payment method type,"schema:UPI, schema:CreditCard, schema:Wallet",confirm,Payment category
-beckn:method.beckn:details,Payment Details,Array[Object],No,Method-specific details,[{beckn:key: vpa beckn:value: user@upi}],confirm,Payment parameters
-beckn:payment.beckn:acceptedPaymentMethod,Accepted Methods,Array[String],No,"Available payment types","[schema:UPI, schema:CreditCard]","init, on_init",Supported payment options
-beckn:payment.schema:paymentDueDate,Payment Due Date,DateTime,No,When payment is due,2024-01-15T12:00:00Z,on_init,Payment deadline
-message.rating,Rating,Object,Yes,Rating input,{beckn:id beckn:value...},rating,User rating submission
-message.rating.@context,Context,URL,Yes,Rating context,https://becknprotocol.io/.../Rating/schema-context.jsonld,rating,Schema reference
-message.rating.@type,Type,String,Yes,Rating type,beckn:RatingInput,rating,Input type
-message.rating.beckn:id,Reference ID,String,Yes,What is being rated,fulfillment-001,rating,Order/fulfillment/item ID
-message.rating.beckn:category,Rating Category,String,Yes,Category being rated,"FULFILLMENT, PROVIDER, ITEM",rating,What aspect to rate
-message.rating.beckn:value,Rating Value,Number,Yes,Rating score,5,rating,Usually 1-5 scale
-message.rating.beckn:feedback,Feedback,String,No,User comments,Great charging experience!,rating,Optional text feedback
-message.rating.beckn:feedbackTags,Feedback Tags,Array[String],No,Predefined feedback tags,"[Fast, Clean, Well-maintained]",rating,Quick feedback options
-message.ratingOutput,Rating Output,Object,Yes,Rating results,{beckn:ratingValue beckn:ratingCount...},on_rating,Aggregate rating data
-message.ratingOutput.beckn:ratingValue,Average Rating,Number,Yes,Mean rating score,4.5,on_rating,Average of all ratings
-message.ratingOutput.beckn:ratingCount,Rating Count,Integer,Yes,Total ratings,129,on_rating,Number of ratings
-message.ratingOutput.beckn:bestRating,Best Rating,Number,Yes,Maximum possible,5,on_rating,Highest rating value
-message.ratingOutput.beckn:worstRating,Worst Rating,Number,Yes,Minimum possible,1,on_rating,Lowest rating value
-message.ratingOutput.beckn:feedbackForm,Feedback Form,Object,No,Additional feedback collection,{beckn:url beckn:mimeType},on_rating,Extended feedback form
-message.support,Support Request,Object,Yes,Support inquiry,{beckn:ref_id beckn:ref_type...},support,Support request details
+message.spatial[].geometry.coordinates,Coordinates,Array[Number],Yes,Geographic coordinates,"[77.59, 12.94]",discover,"[longitude, latitude] order"
+message.spatial[].distanceMeters,Distance in Meters,Number,No,Radius for s_dwithin queries,10000,discover,Only for s_dwithin operator
+message.catalogs,Catalogs,Array[Object],Yes,Array of catalog objects from BPP,[{@type: beckn:Catalog...}],"catalog_publish, on_discover",Contains available items/services from one or more BPPs
+message.catalogs[].\@context,Context,URL,Yes,JSON-LD context for catalog,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"catalog_publish, on_discover",Schema definition reference for core Beckn types
+message.catalogs[].\@type,Type,String,Yes,JSON-LD type,beckn:Catalog,"catalog_publish, on_discover",Always beckn:Catalog
+message.catalogs[].beckn:id,Catalog ID,String,Yes,Unique catalog identifier,catalog-ev-charging-001,"catalog_publish, on_discover",Unique across all catalogs from this BPP
+message.catalogs[].beckn:descriptor,Descriptor,Object,Yes,Catalog description,{schema:name: EV Charging Services Network},"catalog_publish, on_discover",Human-readable catalog information
+message.catalogs[].beckn:descriptor.\@type,Descriptor Type,String,Yes,Type of descriptor,beckn:Descriptor,"catalog_publish, on_discover",Always beckn:Descriptor
+message.catalogs[].beckn:descriptor.schema:name,Name,String,Yes,Display name of catalog,EV Charging Services Network,"catalog_publish, on_discover",Catalog name shown to users
+message.catalogs[].beckn:descriptor.beckn:shortDesc,Short Description,String,No,Brief catalog description,Comprehensive network of fast charging stations across Bengaluru,"catalog_publish, on_discover",One-line description
+message.catalogs[].beckn:bppId,BPP ID in Catalog,String,Yes,BPP ID embedded in catalog,bpp.ev-network.example.com,"catalog_publish, on_discover",Identifies which BPP published this catalog
+message.catalogs[].beckn:bppUri,BPP URI in Catalog,URL,Yes,BPP base URI embedded in catalog,https://bpp.ev-network.example.com/bpp,"catalog_publish, on_discover",BPP endpoint for subsequent calls
+message.catalogs[].beckn:items,Items,Array[Object],Yes,Array of available charging connector items,[{@type: beckn:Item...}],"catalog_publish, on_discover",Charging connectors/services offered
+message.catalogs[].beckn:items[].\@context,Item Context,URL,Yes,JSON-LD context for item,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"catalog_publish, on_discover",Schema definition reference
+message.catalogs[].beckn:items[].\@type,Item Type,String,Yes,JSON-LD type,beckn:Item,"catalog_publish, on_discover",Always beckn:Item
+message.catalogs[].beckn:items[].beckn:id,Item ID,String,Yes,Unique item identifier,IND*ecopower-charging*cs-01*IN*ECO*BTM*01*CCS2*A*CCS2-A,"catalog_publish, on_discover",Composite key: CountryCode*ProviderId*StationId*EVSE*ConnectorId
+message.catalogs[].beckn:items[].beckn:descriptor,Item Descriptor,Object,Yes,Item description,{schema:name: DC Fast Charger - CCS2 (60kW)},"catalog_publish, on_discover",Human-readable item information
+message.catalogs[].beckn:items[].beckn:descriptor.\@type,Descriptor Type,String,Yes,Type of descriptor,beckn:Descriptor,"catalog_publish, on_discover",Always beckn:Descriptor
+message.catalogs[].beckn:items[].beckn:descriptor.schema:name,Name,String,Yes,Display name of item,DC Fast Charger - CCS2 (60kW),"catalog_publish, on_discover",Item name shown to users
+message.catalogs[].beckn:items[].beckn:descriptor.beckn:shortDesc,Short Description,String,No,Brief item description,High-speed DC charging station with CCS2 connector,"catalog_publish, on_discover",One-line summary
+message.catalogs[].beckn:items[].beckn:descriptor.beckn:longDesc,Long Description,String,No,Detailed item description,Ultra-fast DC charging station supporting CCS2...,"catalog_publish, on_discover",Full description with features
+message.catalogs[].beckn:items[].beckn:category,Category,Object,Yes,Item category classification,{schema:codeValue: ev-charging},"catalog_publish, on_discover",Categorization for filtering
+message.catalogs[].beckn:items[].beckn:category.\@type,Category Type,String,Yes,JSON-LD type of category,schema:CategoryCode,"catalog_publish, on_discover",Always schema:CategoryCode
+message.catalogs[].beckn:items[].beckn:category.schema:codeValue,Code Value,String,Yes,Category code,ev-charging,"catalog_publish, on_discover",Standard category code
+message.catalogs[].beckn:items[].beckn:category.schema:name,Category Name,String,Yes,Human-readable category name,EV Charging,"catalog_publish, on_discover",Display name for category
+message.catalogs[].beckn:items[].beckn:availabilityWindow,Availability Window,Array[Object],No,Operating time periods (array of TimePeriod),[{schema:startTime schema:endTime}],"catalog_publish, on_discover",Array format; each entry is a TimePeriod object. Used in discover filter with JSONPath
+message.catalogs[].beckn:items[].beckn:availabilityWindow[].\@type,TimePeriod Type,String,Yes,Type identifier,beckn:TimePeriod,"catalog_publish, on_discover",Always beckn:TimePeriod
+message.catalogs[].beckn:items[].beckn:availabilityWindow[].schema:startTime,Start Time,DateTime,Yes,Availability start datetime,2026-01-04T08:00:00Z,"catalog_publish, on_discover",ISO 8601 format (full datetime in current schemas)
+message.catalogs[].beckn:items[].beckn:availabilityWindow[].schema:endTime,End Time,DateTime,Yes,Availability end datetime,2026-01-04T20:00:00Z,"catalog_publish, on_discover",ISO 8601 format (full datetime in current schemas)
+message.catalogs[].beckn:items[].beckn:rateable,Rateable,Boolean,Yes,Whether item can be rated,true,"catalog_publish, on_discover",Allows customer ratings
+message.catalogs[].beckn:items[].beckn:rating,Rating,Object,No,Rating information,{beckn:ratingValue: 4.5 beckn:ratingCount: 128},"catalog_publish, on_discover",Aggregate rating data
+message.catalogs[].beckn:items[].beckn:rating.\@type,Rating Type,String,Yes,JSON-LD type,beckn:Rating,"catalog_publish, on_discover",Always beckn:Rating
+message.catalogs[].beckn:items[].beckn:rating.beckn:ratingValue,Rating Value,Number,Yes,Average rating score,4.5,"catalog_publish, on_discover",Usually 0-5 scale
+message.catalogs[].beckn:items[].beckn:rating.beckn:ratingCount,Rating Count,Integer,Yes,Number of ratings,128,"catalog_publish, on_discover",Total ratings received
+message.catalogs[].beckn:items[].beckn:isActive,Is Active,Boolean,Yes,Whether item is currently active,true,"catalog_publish, on_discover",Active status
+message.catalogs[].beckn:items[].beckn:provider,Provider,Object,Yes,Provider information,{beckn:id beckn:descriptor},"catalog_publish, on_discover",Charging station operator reference
+message.catalogs[].beckn:items[].beckn:provider.beckn:id,Provider ID,String,Yes,Provider identifier,ecopower-charging,"catalog_publish, on_discover",Unique provider ID; matches beckn:seller in order
+message.catalogs[].beckn:items[].beckn:provider.beckn:descriptor,Provider Descriptor,Object,Yes,Provider details,{schema:name: EcoPower Charging Pvt Ltd},"catalog_publish, on_discover",Provider name and info
+message.catalogs[].beckn:items[].beckn:provider.beckn:descriptor.\@type,Provider Descriptor Type,String,Yes,Type of descriptor,beckn:Descriptor,"catalog_publish, on_discover",Always beckn:Descriptor
+message.catalogs[].beckn:items[].beckn:provider.beckn:descriptor.schema:name,Provider Name,String,Yes,Display name of provider,EcoPower Charging Pvt Ltd,"catalog_publish, on_discover",Provider name shown to users
+message.catalogs[].beckn:items[].beckn:itemAttributes,Item Attributes,Object,Yes,EV charging-specific attributes,{@type: ChargingService...},"catalog_publish, on_discover",ChargingService schema extension
+message.catalogs[].beckn:items[].beckn:itemAttributes.\@context,Context,URL,Yes,ChargingService schema context,https://raw.githubusercontent.com/.../EvChargingService/v1/context.jsonld,"catalog_publish, on_discover",Schema reference for EvChargingService
+message.catalogs[].beckn:items[].beckn:itemAttributes.\@type,Type,String,Yes,Type identifier,ChargingService,"catalog_publish, on_discover",Always ChargingService
+message.catalogs[].beckn:items[].beckn:itemAttributes.connectorType,Connector Type,String,Yes,Charging connector type,"CCS2, CHAdeMO, Type2, GBT","catalog_publish, on_discover",Standard connector types
+message.catalogs[].beckn:items[].beckn:itemAttributes.maxPowerKW,Max Power (kW),Number,Yes,Maximum charging power in kilowatts,60,"catalog_publish, on_discover",Peak power in kilowatts; used in discover filter
+message.catalogs[].beckn:items[].beckn:itemAttributes.minPowerKW,Min Power (kW),Number,No,Minimum charging power in kilowatts,5,"catalog_publish, on_discover",Minimum power in kilowatts
+message.catalogs[].beckn:items[].beckn:itemAttributes.reservationSupported,Reservation Supported,Boolean,Yes,Whether advance reservations are allowed,true,"catalog_publish, on_discover",Advance booking capability
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation,Charging Station,Object,Yes,Physical charging station details,{id serviceLocation},"catalog_publish, on_discover",Station metadata
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.id,Station ID,String,Yes,Unique station identifier,IN-ECO-BTM-STATION-01,"catalog_publish, on_discover",Physical station reference
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation,Service Location,Object,Yes,Station location details,{@type: beckn:Location geo address},"catalog_publish, on_discover",Where station is located; used as geo target in discover spatial filter
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.\@type,Location Type,String,Yes,JSON-LD type,beckn:Location,"catalog_publish, on_discover",Always beckn:Location
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.geo,Geo Location,Object,Yes,GeoJSON location object,{type: Point coordinates: [77.5946 12.9716]},"catalog_publish, on_discover",GeoJSON format
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.geo.type,Geometry Type,String,Yes,GeoJSON geometry type,Point,"catalog_publish, on_discover",Usually Point for stations
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.geo.coordinates,Coordinates,Array[Number],Yes,Longitude and latitude,"[77.5946, 12.9716]","catalog_publish, on_discover","[longitude, latitude]"
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.address,Address,Object,Yes,Postal address,{streetAddress addressLocality...},"catalog_publish, on_discover",Full postal address
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.address.streetAddress,Street Address,String,Yes,Street address,"EcoPower BTM Hub, 100 Ft Rd","catalog_publish, on_discover",Street and building info
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.address.addressLocality,City/Locality,String,Yes,City or locality,Bengaluru,"catalog_publish, on_discover",City name
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.address.addressRegion,State/Region,String,Yes,State or region,Karnataka,"catalog_publish, on_discover",State/province name
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.address.postalCode,Postal Code,String,Yes,ZIP/postal code,560076,"catalog_publish, on_discover",Postal code
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingStation.serviceLocation.address.addressCountry,Country,String,Yes,Country code,IN,"catalog_publish, on_discover",ISO 3166-1 alpha-2
+message.catalogs[].beckn:items[].beckn:itemAttributes.amenityFeature,Amenity Features,Array[String],No,Available amenities at station,"[RESTAURANT, RESTROOM, WI-FI]","catalog_publish, on_discover",Facilities at location
+message.catalogs[].beckn:items[].beckn:itemAttributes.evseId,EVSE ID,String,No,Electric Vehicle Supply Equipment ID,IN*ECO*BTM*01*CCS2*A,"catalog_publish, on_discover",EMSP/OCPI format
+message.catalogs[].beckn:items[].beckn:itemAttributes.qrIdentifier,QR Identifier,String,No,QR code value for identifying connector,https://charge.ecopower.in/cs01-ccs2,"catalog_publish, on_discover",Used in discover filter to find by QR scan
+message.catalogs[].beckn:items[].beckn:itemAttributes.parkingType,Parking Type,String,No,Type of parking location,"Mall, Street, Highway, Office, OffStreet","catalog_publish, on_discover",Parking category
+message.catalogs[].beckn:items[].beckn:itemAttributes.powerType,Power Type,String,Yes,AC or DC power,"AC, DC, AC_3_PHASE","catalog_publish, on_discover",Type of electrical power
+message.catalogs[].beckn:items[].beckn:itemAttributes.connectorFormat,Connector Format,String,Yes,Socket or cable,"SOCKET, CABLE","catalog_publish, on_discover",Physical connector format
+message.catalogs[].beckn:items[].beckn:itemAttributes.chargingSpeed,Charging Speed,String,Yes,Speed classification,"SLOW, NORMAL, FAST, ULTRAFAST","catalog_publish, on_discover",Charging speed category; note ULTRAFAST (not ULTRA_FAST) in schemas
+message.catalogs[].beckn:items[].beckn:itemAttributes.vehicleType,Vehicle Type,String,No,Supported vehicle type,"2-WHEELER, 3-WHEELER, 4-WHEELER","catalog_publish, on_discover",Vehicle compatibility; used in discover filter
+message.catalogs[].beckn:offers,Offers,Array[Object],Yes,Pricing offers from CPO,[{@type: beckn:Offer...}],"catalog_publish, on_discover",Available pricing plans for items in this catalog
+message.catalogs[].beckn:offers[].\@context,Offer Context,URL,Yes,JSON-LD context for offer,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"catalog_publish, on_discover",Schema reference
+message.catalogs[].beckn:offers[].\@type,Offer Type,String,Yes,JSON-LD type,beckn:Offer,"catalog_publish, on_discover",Always beckn:Offer
+message.catalogs[].beckn:offers[].beckn:id,Offer ID,String,Yes,Unique offer identifier,offer-ccs2-60kw-kwh,"catalog_publish, on_discover",Offer reference ID used in orderItems.beckn:acceptedOffer
+message.catalogs[].beckn:offers[].beckn:descriptor,Offer Descriptor,Object,Yes,Offer description,{schema:name: Per-kWh Tariff - CCS2 60kW},"catalog_publish, on_discover",Human-readable offer info
+message.catalogs[].beckn:offers[].beckn:descriptor.\@type,Descriptor Type,String,Yes,Type of descriptor,beckn:Descriptor,"catalog_publish, on_discover",Always beckn:Descriptor
+message.catalogs[].beckn:offers[].beckn:descriptor.schema:name,Offer Name,String,Yes,Display name of offer,Per-kWh Tariff - CCS2 60kW,"catalog_publish, on_discover",Offer name shown to users
+message.catalogs[].beckn:offers[].beckn:items,Offer Applicable Items,Array[String],Yes,Item IDs this offer applies to,[IND*ecopower-charging*cs-01*...],"catalog_publish, on_discover",References to beckn:Item IDs (string references not objects)
+message.catalogs[].beckn:offers[].beckn:price,Price,Object,Yes,Offer pricing details,{currency: INR value: 45.0 applicableQuantity: {...}},"catalog_publish, on_discover",Price structure (different from old CSV - no @type or schema: prefix)
+message.catalogs[].beckn:offers[].beckn:price.currency,Currency,String,Yes,Currency code,INR,"catalog_publish, on_discover",ISO 4217 currency code
+message.catalogs[].beckn:offers[].beckn:price.value,Price Value,Number,Yes,Unit price,45.0,"catalog_publish, on_discover",Price per unit
+message.catalogs[].beckn:offers[].beckn:price.applicableQuantity,Applicable Quantity,Object,Yes,Quantity this price applies to,{unitText: Kilowatt Hour unitCode: KWH unitQuantity: 1},"catalog_publish, on_discover",Unit definition for pricing
+message.catalogs[].beckn:offers[].beckn:price.applicableQuantity.unitText,Unit Text,String,Yes,Human-readable unit name,Kilowatt Hour,"catalog_publish, on_discover",Display name for unit
+message.catalogs[].beckn:offers[].beckn:price.applicableQuantity.unitCode,Unit Code,String,Yes,Unit of measurement code,KWH,"catalog_publish, on_discover",UN/CEFACT unit codes
+message.catalogs[].beckn:offers[].beckn:price.applicableQuantity.unitQuantity,Unit Quantity,Number,Yes,Quantity per price unit,1,"catalog_publish, on_discover",e.g. 1 KWH per price point
+message.catalogs[].beckn:offers[].beckn:validity,Validity Period,Object,No,Time period for offer validity,{schema:startDate schema:endDate},"catalog_publish, on_discover",When this offer is valid
+message.catalogs[].beckn:offers[].beckn:validity.\@type,Validity Type,String,Yes,JSON-LD type,beckn:TimePeriod,"catalog_publish, on_discover",Always beckn:TimePeriod
+message.catalogs[].beckn:offers[].beckn:validity.schema:startDate,Start Date,DateTime,Yes,Offer validity start,2025-10-01T00:00:00Z,"catalog_publish, on_discover",ISO 8601 format
+message.catalogs[].beckn:offers[].beckn:validity.schema:endDate,End Date,DateTime,Yes,Offer validity end,2026-03-31T23:59:59Z,"catalog_publish, on_discover",ISO 8601 format
+message.catalogs[].beckn:offers[].beckn:acceptedPaymentMethod,Accepted Payment Methods,Array[String],Yes,Payment types accepted,"[UPI, CREDIT_CARD, WALLET]","catalog_publish, on_discover","Supported payment methods (plain strings, not schema: prefixed)"
+message.catalogs[].beckn:offers[].beckn:offerAttributes,Offer Attributes,Object,Yes,EV charging-specific offer details,{@type: ChargingOffer tariffModel: PER_KWH},"catalog_publish, on_discover",ChargingOffer schema extension
+message.catalogs[].beckn:offers[].beckn:offerAttributes.\@context,Context,URL,Yes,ChargingOffer schema context,https://raw.githubusercontent.com/.../EvChargingOffer/v1/context.jsonld,"catalog_publish, on_discover",Schema reference for EvChargingOffer
+message.catalogs[].beckn:offers[].beckn:offerAttributes.\@type,Type,String,Yes,Type identifier,ChargingOffer,"catalog_publish, on_discover",Always ChargingOffer
+message.catalogs[].beckn:offers[].beckn:offerAttributes.tariffModel,Tariff Model,String,Yes,Pricing model type,"PER_KWH, PER_MINUTE, FLAT","catalog_publish, on_discover",How charging cost is calculated
+message.catalogs[].beckn:offers[].beckn:offerAttributes.idleFeePolicy,Idle Fee Policy,Object,No,Fee for idle time after charging,{currency: INR value: 2 applicableQuantity: {...}},"catalog_publish, on_discover",Penalty for not unplugging after charging completes
+message.catalogs[].beckn:offers[].beckn:offerAttributes.idleFeePolicy.currency,Idle Fee Currency,String,Yes,Currency code for idle fee,INR,"catalog_publish, on_discover",ISO 4217 currency code
+message.catalogs[].beckn:offers[].beckn:offerAttributes.idleFeePolicy.value,Idle Fee Value,Number,Yes,Amount of idle fee,2,"catalog_publish, on_discover",Fee amount per unit time
+message.catalogs[].beckn:offers[].beckn:offerAttributes.idleFeePolicy.applicableQuantity,Idle Fee Applicable Quantity,Object,Yes,Time unit for idle fee,{unitCode: MIN unitText: minutes unitQuantity: 10},"catalog_publish, on_discover",e.g. 2 INR per 10 minutes idle
+message.catalogs[].beckn:offers[].beckn:offerAttributes.idleFeePolicy.applicableQuantity.unitCode,Unit Code,String,Yes,Unit code for time,MIN,"catalog_publish, on_discover",UN/CEFACT time unit code
+message.catalogs[].beckn:offers[].beckn:offerAttributes.idleFeePolicy.applicableQuantity.unitText,Unit Text,String,Yes,Human-readable time unit,minutes,"catalog_publish, on_discover",Display name for time unit
+message.catalogs[].beckn:offers[].beckn:offerAttributes.idleFeePolicy.applicableQuantity.unitQuantity,Unit Quantity,Number,Yes,Number of time units per fee,10,"catalog_publish, on_discover",Idle fee charged every N minutes
+message.catalogs[].beckn:offers[].beckn:provider,Provider Reference,String,Yes,Provider ID this offer belongs to,ecopower-charging,"catalog_publish, on_discover",References provider ID (string not object in offers)
+message.order,Order,Object,Yes,Order details,{@type: beckn:Order...},"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Complete order information
+message.order.\@context,Order Context,URL,Yes,JSON-LD context for order,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Schema reference
+message.order.\@type,Order Type,String,Yes,JSON-LD type,beckn:Order,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Always beckn:Order
+message.order.beckn:id,Order ID,String,Yes,Unique order identifier,order-ev-charging-001,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_status, on_track, on_update, status, track, update",BAP-assigned in init; absent in select/on_select
+message.order.beckn:orderStatus,Order Status,String,Yes,Current order status,"CREATED, PENDING, REJECTED, CONFIRMED, INPROGRESS, COMPLETED, CANCELLED","cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Order lifecycle status; PENDING appears in on_status/confirm after payment; INPROGRESS once charging is ACTIVE
+message.order.beckn:seller,Seller,String,Yes,Provider ID of seller,ecopower-charging,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",References provider identifier; matches provider in catalog; echoed throughout the order lifecycle
+message.order.beckn:buyer,Buyer,Object,Yes,Buyer information,{@type: beckn:Buyer...},"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Customer details
+message.order.beckn:buyer.\@context,Buyer Context,URL,Yes,JSON-LD context for buyer,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Schema reference
+message.order.beckn:buyer.\@type,Buyer Type,String,Yes,JSON-LD type,beckn:Buyer,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Always beckn:Buyer
+message.order.beckn:buyer.beckn:id,Buyer ID,String,Yes,Buyer identifier,user-123,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Unique user/BAP-assigned buyer ID
+message.order.beckn:buyer.beckn:role,Buyer Role,String,Yes,Role of buyer,BUYER,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, select, status, update",Always BUYER in standard flows
+message.order.beckn:buyer.beckn:displayName,Display Name,String,Yes,Buyer's display name,Ravi Kumar,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, select, status, update",Full name of buyer
+message.order.beckn:buyer.beckn:telephone,Phone,String,Yes,Buyer's phone number,+91-9876543210,"confirm, init, on_confirm, on_init, on_select, on_status, on_update, select, status, update",Contact phone with country code
+message.order.beckn:buyer.beckn:email,Email,String,Yes,Buyer's email address,ravi.kumar@example.com,"confirm, init, on_confirm, on_init, on_select, on_status, on_update, select, status, update",Contact email
+message.order.beckn:buyer.beckn:taxID,Tax ID,String,No,Tax identification number,GSTIN29ABCDE1234F1Z5,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, select, status, update",GST/VAT number
+message.order.beckn:buyer.beckn:buyerAttributes,Buyer Attributes,Object,No,Buyer payment-specific attributes,{@type: BuyerUPI vpa: ravikumar@upi},"cancel, confirm, init, on_cancel, on_confirm, on_init, on_status, on_track, on_update, status, track, update",Only present in BPP-bound init and BPP on_init response
+message.order.beckn:buyer.beckn:buyerAttributes.\@context,Context,URL,Yes,BuyerUPI context,https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_status, on_track, on_update, status, track, update",Schema reference for UBC buyer attributes
+message.order.beckn:buyer.beckn:buyerAttributes.\@type,Type,String,Yes,Type identifier,BuyerUPI,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_status, on_track, on_update, status, track, update",Always BuyerUPI for UPI-based payment flows
+message.order.beckn:buyer.beckn:buyerAttributes.vpa,VPA,String,Yes,Virtual Payment Address for refunds,ravikumar@upi,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_status, on_track, on_update, status, track, update",UPI VPA used for refund settlement to buyer
+message.order.beckn:orderItems,Order Items,Array[Object],Yes,Items being ordered,[{beckn:orderedItem beckn:quantity...}],"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Selected charging connector; in status/update/track/cancel only beckn:orderedItem is required (no quantity/price)
+message.order.beckn:orderItems[].beckn:orderedItem,Ordered Item,String,Yes,Reference to catalog item ID,IND*ecopower-charging*cs-01*IN*ECO*BTM*01*CCS2*A*CCS2-A,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_track, on_update, select, status, track, update",Must match beckn:id in catalog item
+message.order.beckn:orderItems[].beckn:quantity,Quantity,Object,Yes,Quantity details,{unitText: Kilowatt Hour unitCode: KWH unitQuantity: 2.5},"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, select",Amount to purchase
+message.order.beckn:orderItems[].beckn:quantity.unitText,Unit Text,String,Yes,Human-readable unit name,Kilowatt Hour,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, select",Display name for unit
+message.order.beckn:orderItems[].beckn:quantity.unitCode,Unit Code,String,Yes,Unit of measurement,KWH,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, select",UN/CEFACT codes
+message.order.beckn:orderItems[].beckn:quantity.unitQuantity,Unit Quantity,Number,Yes,Quantity amount,2.5,"cancel, confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, select",Numeric value (e.g. 2.5 kWh)
+message.order.beckn:orderItems[].beckn:acceptedOffer,Accepted Offer,Object,Yes,Full offer object selected by buyer,{@type: beckn:Offer beckn:id: offer-ccs2-60kw-kwh...},"on_select, select",Full offer object echoed from catalog
+message.order.beckn:orderItems[].beckn:acceptedOffer.\@context,Offer Context,URL,Yes,JSON-LD context,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"on_select, select",Schema reference
+message.order.beckn:orderItems[].beckn:acceptedOffer.\@type,Offer Type,String,Yes,JSON-LD type,beckn:Offer,"on_select, select",Always beckn:Offer
+message.order.beckn:orderItems[].beckn:acceptedOffer.beckn:id,Offer ID,String,Yes,Unique offer identifier,offer-ccs2-60kw-kwh,"on_select, select",References beckn:offers[].beckn:id in catalog
+message.order.beckn:orderItems[].beckn:acceptedOffer.beckn:descriptor,Offer Descriptor,Object,Yes,Offer description,{schema:name: Per-kWh Tariff - CCS2 60kW},"on_select, select",Human-readable offer info
+message.order.beckn:orderItems[].beckn:acceptedOffer.beckn:items,Offer Items,Array[String],Yes,Items this offer applies to,[IND*ecopower-charging*cs-01*...],"on_select, select",Item ID references
+message.order.beckn:orderItems[].beckn:acceptedOffer.beckn:provider,Offer Provider,String,Yes,Provider ID for this offer,ecopower-charging,"on_select, select",References provider ID
+message.order.beckn:orderItems[].beckn:acceptedOffer.beckn:price,Offer Price,Object,Yes,Price from the accepted offer,{currency: INR value: 45.0 applicableQuantity: {...}},"on_select, select",Price echoed from catalog for the accepted offer
+message.order.beckn:orderItems[].beckn:price,Item Price,Object,Yes,Computed price for this order item,{currency: INR value: 45.0 applicableQuantity: {...}},"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status",Price as confirmed by BPP; echoes offer price
+message.order.beckn:orderItems[].beckn:price.currency,Currency,String,Yes,Currency code,INR,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status",ISO 4217 currency code
+message.order.beckn:orderItems[].beckn:price.value,Item Price Value,Number,Yes,Unit price,45.0,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status",Price per unit
+message.order.beckn:orderItems[].beckn:price.applicableQuantity,Applicable Quantity,Object,Yes,Quantity this price applies to,{unitText: Kilowatt Hour unitCode: KWH unitQuantity: 1},"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status",Unit definition for item pricing
+message.order.beckn:orderValue,Order Value,Object,Yes,Total order pricing,{currency: INR value: 143.95 components: [...]},"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, status, update",Order cost breakdown
+message.order.beckn:orderValue.currency,Currency,String,Yes,Currency code,INR,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, status, update",ISO 4217 code
+message.order.beckn:orderValue.value,Total Value,Number,Yes,Total amount,143.95,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, status, update",Final price (all components summed)
+message.order.beckn:orderValue.components,Price Components,Array[Object],No,Itemized price breakdown,[{type: UNIT value: 112.5...}],"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, status, update",Detailed cost breakdown
+message.order.beckn:orderValue.components[].type,Component Type,String,Yes,Type of price component,"UNIT, SURCHARGE, DISCOUNT, FEE","confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, status, update",Cost category
+message.order.beckn:orderValue.components[].value,Component Value,Number,Yes,Amount for this component,112.5,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, status, update",Positive for costs; negative for discounts
+message.order.beckn:orderValue.components[].currency,Component Currency,String,Yes,Currency code,INR,"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, status, update",ISO 4217 currency code
+message.order.beckn:orderValue.components[].description,Component Description,String,Yes,Human-readable description,Base charging session cost (45 INR/kWh × 2.5 kWh),"confirm, init, on_cancel, on_confirm, on_init, on_select, on_status, on_update, status, update",Explains the component
+message.order.beckn:orderAttributes,Order Attributes,Object,Yes,EV charging session-level order attributes,{@type: ChargingSession buyerFinderFee: {...} preferences: {...}},"on_select, select",ChargingSession schema extension for order-level attributes
+message.order.beckn:orderAttributes.\@context,Context,URL,Yes,ChargingSession schema context,https://raw.githubusercontent.com/.../EvChargingSession/v1/context.jsonld,"on_select, select",Schema reference for EvChargingSession
+message.order.beckn:orderAttributes.\@type,Type,String,Yes,Type identifier,ChargingSession,"on_select, select",Always ChargingSession
+message.order.beckn:orderAttributes.buyerFinderFee,Buyer Finder Fee,Object,Yes,BAP commission structure,{feeType: PERCENTAGE feeValue: 2.5},"on_select, select",Fee charged by BAP for discovery services
+message.order.beckn:orderAttributes.buyerFinderFee.feeType,Fee Type,String,Yes,How the fee is calculated,"PERCENTAGE, FLAT","on_select, select",PERCENTAGE or flat amount
+message.order.beckn:orderAttributes.buyerFinderFee.feeValue,Fee Value,Number,Yes,Fee amount or percentage,2.5,"on_select, select",2.5 = 2.5% if feeType is PERCENTAGE
+message.order.beckn:orderAttributes.preferences,Preferences,Object,No,Buyer's preferred charging time window,{startTime: 2026-01-04T08:00:00Z endTime: 2026-01-04T20:00:00Z},"on_select, select",Preferred charging window (not a booking guarantee)
+message.order.beckn:orderAttributes.preferences.startTime,Preferred Start Time,DateTime,Yes,Preferred session start time,2026-01-04T08:00:00Z,"on_select, select",ISO 8601 format
+message.order.beckn:orderAttributes.preferences.endTime,Preferred End Time,DateTime,Yes,Preferred session end time,2026-01-04T20:00:00Z,"on_select, select",ISO 8601 format
+message.order.beckn:payment,Payment,Object,Yes,Payment information,{@type: beckn:Payment...},"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Payment details
+message.order.beckn:payment.\@context,Payment Context,URL,Yes,JSON-LD context for payment,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Schema reference
+message.order.beckn:payment.\@type,Payment Type,String,Yes,JSON-LD type,beckn:Payment,"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Always beckn:Payment
+message.order.beckn:payment.beckn:id,Payment ID,String,No,Unique payment transaction ID,payment-123e4567-e89b-12d3-a456-426614174000,"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",BAP-generated payment identifier
+message.order.beckn:payment.beckn:amount,Amount,Object,Yes,Payment amount,{currency: INR value: 143.95},"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Amount to be paid
+message.order.beckn:payment.beckn:amount.currency,Currency,String,Yes,Currency code,INR,"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",ISO 4217 currency code
+message.order.beckn:payment.beckn:amount.value,Amount Value,Number,Yes,Amount in currency,143.95,"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Should match beckn:orderValue.value
+message.order.beckn:payment.beckn:beneficiary,Beneficiary,String,Yes,Who receives the payment,"BAP, BPP","confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",BAP in BAP-bound init/on_init (BAP collects); BPP in BPP-bound init/on_init
+message.order.beckn:payment.beckn:paymentStatus,Payment Status,String,Yes,Current payment status,"INITIATED, PENDING, PAID, FAILED, REFUNDED","confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Payment lifecycle state
+message.order.beckn:payment.beckn:paymentURL,Payment URL,URL,No,Link to payment gateway,https://payments.bluechargenet-aggregator.io/pay?...,"confirm, on_cancel, on_confirm, on_init, on_status, on_update, status, update",URL for buyer to complete payment; provided by BPP in on_init
+message.order.beckn:payment.beckn:txnRef,Transaction Reference,String,No,Payment transaction reference,TXN-123456789,"confirm, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Payment gateway transaction reference
+message.order.beckn:payment.beckn:acceptedPaymentMethod,Accepted Payment Methods,Array[String],No,Payment methods accepted by BPP,"[BANK_TRANSFER, UPI, WALLET]",on_init,Supported payment methods for this transaction
+message.order.beckn:payment.beckn:paymentAttributes,Payment Attributes,Object,Yes,UBC-specific payment/settlement details,{@type: UBCPaymentAttributes settlementAccounts: [...]},"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",UBC extension for settlement account details
+message.order.beckn:payment.beckn:paymentAttributes.\@context,Context,URL,Yes,UBCPaymentAttributes schema context,https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld,"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Schema reference for UBC payment extensions
+message.order.beckn:payment.beckn:paymentAttributes.\@type,Type,String,Yes,Type identifier,UBCPaymentAttributes,"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",Always UBCPaymentAttributes
+message.order.beckn:payment.beckn:paymentAttributes.upiTransactionId,UPI Transaction ID,String,No,UPI payment transaction reference,UPI123456789012,"confirm, init, on_cancel, on_confirm, on_init, on_status, on_update, status, update",UPI transaction ref once payment is initiated from buyer side
+message.order.beckn:payment.beckn:paymentAttributes.settlementAccounts,Settlement Accounts,Array[Object],Yes,Bank/UPI accounts for settlement,[{beneficiaryId accountHolderName...}],"init, on_init",List of accounts for settlement; BAP-bound init has only BAP account; BPP on_init has both BAP and BPP accounts
+message.order.beckn:payment.beckn:paymentAttributes.settlementAccounts[].beneficiaryId,Beneficiary ID,String,Yes,ID of account owner,example-bap.com,"init, on_init",Domain ID of the BAP or BPP receiving settlement
+message.order.beckn:payment.beckn:paymentAttributes.settlementAccounts[].accountHolderName,Account Holder Name,String,Yes,Legal name of account holder,Example BAP Solutions Pvt Ltd,"init, on_init",Bank registered name
+message.order.beckn:payment.beckn:paymentAttributes.settlementAccounts[].accountNumber,Account Number,String,Yes,Bank account number,9876543210123,"init, on_init",Bank account number for NEFT/IMPS settlement
+message.order.beckn:payment.beckn:paymentAttributes.settlementAccounts[].ifscCode,IFSC Code,String,Yes,Bank branch IFSC code,HDFC0009876,"init, on_init",Indian bank branch identifier
+message.order.beckn:payment.beckn:paymentAttributes.settlementAccounts[].bankName,Bank Name,String,Yes,Name of bank,HDFC Bank,"init, on_init",Bank name for display
+message.order.beckn:payment.beckn:paymentAttributes.settlementAccounts[].vpa,VPA,String,No,UPI Virtual Payment Address,example-bap@paytm,"init, on_init",UPI VPA for UPI-based settlement
+message.ratings,Ratings,Array[Object],Yes,Array of rating inputs,[{@type: beckn:RatingInput...}],rating,User rating submissions; array allows rating multiple aspects (fulfillment AND item) in one call
+message.ratings[].\@context,Context,URL,Yes,RatingInput context,https://raw.githubusercontent.com/.../core/v2/context.jsonld,rating,Schema definition reference
+message.ratings[].\@type,Type,String,Yes,Type identifier,beckn:RatingInput,rating,Always beckn:RatingInput
+message.ratings[].id,Reference ID,String,Yes,What is being rated,"fulfillment-001, IND*ecopower-charging*cs-01*...",rating,Fulfillment ID when category=FULFILLMENT; Item ID when category=ITEM
+message.ratings[].ratingValue,Rating Value,Number,Yes,Rating score,4,rating,Usually 1-5 scale
+message.ratings[].bestRating,Best Rating,Number,Yes,Maximum possible rating,5,rating,Highest rating value
+message.ratings[].worstRating,Worst Rating,Number,Yes,Minimum possible rating,1,rating,Lowest rating value
+message.ratings[].category,Rating Category,String,Yes,Category being rated,"FULFILLMENT, ITEM, PROVIDER, ORDER",rating,What aspect to rate; multiple entries allowed in ratings array
+message.ratings[].feedback,Feedback,Object,No,User feedback details,{comments tags: [...]},rating,Structured feedback
+message.ratings[].feedback.comments,Comments,String,No,User review text,Excellent charging experience!,rating,Free-text feedback
+message.ratings[].feedback.tags,Tags,Array[String],No,Feedback tags,"[fast-charging, clean-station, short-cable, poor-display]",rating,Predefined feedback labels
+message.received,Received,Boolean,Yes,Whether rating was received,true,on_rating,Acknowledgement flag; always true on successful on_rating
+message.feedbackForm,Feedback Form,Object,No,Optional feedback form for extended feedback collection,{@type: beckn:Form url mime_type submission_id},on_rating,Extended feedback form provided by BPP
+message.feedbackForm.\@context,Feedback Form Context,URL,No,JSON-LD context for Form,https://raw.githubusercontent.com/.../core/v2/context.jsonld,on_rating,Schema reference
+message.feedbackForm.\@type,Feedback Form Type,String,No,JSON-LD type,beckn:Form,on_rating,Always beckn:Form
+message.feedbackForm.url,Form URL,URL,Yes,Feedback form link,https://example-bpp.com/feedback/portal,on_rating,Where to submit extended feedback
+message.feedbackForm.mime_type,MIME Type,String,No,Form content type,application/xml,on_rating,Format of feedback form
+message.feedbackForm.submission_id,Submission ID,String,No,Feedback submission reference,feedback-123e4567-e89b-12d3-a456-426614174000,on_rating,Unique submission identifier
+message.support,Support Request (DEPRECATED),Object,No,Deprecated support structure (use message.support with SupportInfo),{beckn:ref_id beckn:ref_type...},"on_support, support",Old flat structure replaced by refId/refType/support/feedback pattern
 message.support.beckn:ref_id,Reference ID,String,Yes,Entity needing support,order-12345,support,Order/fulfillment/item ID
 message.support.beckn:ref_type,Reference Type,String,Yes,Type of entity,"ORDER, FULFILLMENT, ITEM, PROVIDER",support,What needs support
 message.support.beckn:issue,Issue,String,No,Problem description,Payment not processing,support,Issue details
@@ -194,36 +235,12 @@ message.cancellationTerms,Cancellation Terms,Object,Yes,Cancellation policy,{bec
 message.cancellationTerms.beckn:refundAmount,Refund Amount,Number,No,Amount to refund,45.00,on_cancel,Refundable amount
 message.cancellationTerms.beckn:cancellationFee,Cancellation Fee,Number,No,Fee charged,10.00,on_cancel,Cancellation penalty
 message.cancellationTerms.beckn:refundPolicy,Refund Policy,String,No,Refund policy details,Full refund if cancelled 1hr before,on_cancel,Policy explanation
-beckn:buyerAttributes,Buyer Attributes,Object,No,Buyer payment-specific attributes,{@type: BuyerPaymentInfo vpa: user@upi},"select, on_select, init, on_init, confirm, on_confirm, track, on_track, cancel, on_cancel",Contains buyer payment info like VPA
-beckn:buyerAttributes.@context,Context,URL,Yes,BuyerPaymentInfo context,https://raw.githubusercontent.com/.../PaymentSettlement/v1/context.jsonld,"init, confirm",Schema reference for buyer payment info
-beckn:buyerAttributes.@type,Type,String,Yes,Type identifier,BuyerPaymentInfo,"init, confirm",Always BuyerPaymentInfo
-beckn:buyerAttributes.vpa,VPA,String,Yes,Virtual Payment Address,ravikumar@upi,"init, confirm, on_confirm",UPI Virtual Payment Address for refunds
 beckn:deliveryAttributes.chargingTelemetry,Charging Telemetry,Array[Object],No,Real-time charging session metrics,[{eventTime metrics: [...]}],"on_track, on_status",Time-series telemetry data during charging
 chargingTelemetry[].eventTime,Event Time,DateTime,Yes,Timestamp of telemetry reading,2025-01-27T17:00:00Z,"on_track, on_status",ISO 8601 format
 chargingTelemetry[].metrics,Metrics,Array[Object],Yes,Array of metric readings,[{name value unitCode}],"on_track, on_status",Charging session measurements
 chargingTelemetry[].metrics[].name,Metric Name,String,Yes,Type of measurement,"STATE_OF_CHARGE, POWER, ENERGY, VOLTAGE, CURRENT","on_track, on_status",Telemetry metric identifier
 chargingTelemetry[].metrics[].value,Metric Value,Number,Yes,Measured value,62.5,"on_track, on_status",Numeric measurement
 chargingTelemetry[].metrics[].unitCode,Unit Code,String,Yes,Unit of measurement,"PERCENTAGE, KWH, KW, VLT, AMP","on_track, on_status",UN/CEFACT unit codes
-beckn:itemAttributes.chargingStation,Charging Station,Object,No,Physical charging station details,{id serviceLocation},"on_discover, catalog_publish",Station metadata
-beckn:itemAttributes.chargingStation.id,Station ID,String,Yes,Unique station identifier,IN-ECO-BTM-STATION-01,"on_discover, catalog_publish",Physical station reference
-beckn:itemAttributes.chargingStation.serviceLocation,Service Location,Object,Yes,Station location details,{@type: beckn:Location geo address},"on_discover, catalog_publish",Where station is located
-beckn:itemAttributes.vehicleType,Vehicle Type,String,No,Supported vehicle type,"2-WHEELER, 3-WHEELER, 4-WHEELER","on_discover, catalog_publish",Vehicle compatibility
-message.ratings,Ratings,Array[Object],Yes,Array of rating inputs,[{@type: beckn:RatingInput...}],rating,User rating submissions
-message.ratings[].@context,Context,URL,Yes,RatingInput context,https://raw.githubusercontent.com/.../context.jsonld,rating,Schema definition reference
-message.ratings[].@type,Type,String,Yes,Type identifier,beckn:RatingInput,rating,Always beckn:RatingInput
-message.ratings[].id,Reference ID,String,Yes,What is being rated,fulfillment-001,rating,Order/fulfillment/item ID
-message.ratings[].ratingValue,Rating Value,Number,Yes,Rating score,4,rating,Usually 1-5 scale
-message.ratings[].bestRating,Best Rating,Number,Yes,Maximum possible rating,5,rating,Highest rating value
-message.ratings[].worstRating,Worst Rating,Number,Yes,Minimum possible rating,1,rating,Lowest rating value
-message.ratings[].category,Rating Category,String,Yes,Category being rated,"FULFILLMENT, PROVIDER, ITEM, ORDER",rating,What aspect to rate
-message.ratings[].feedback,Feedback,Object,No,User feedback details,{comments tags: [...]},rating,Structured feedback
-message.ratings[].feedback.comments,Comments,String,No,User review text,Excellent charging experience!,rating,Free-text feedback
-message.ratings[].feedback.tags,Tags,Array[String],No,Feedback tags,"[fast-charging, clean-station]",rating,Predefined feedback labels
-message.received,Received,Boolean,Yes,Whether rating was received,true,on_rating,Acknowledgement flag
-message.feedbackForm,Feedback Form,Object,No,Additional feedback form details,{url mime_type submission_id},on_rating,Extended feedback collection
-message.feedbackForm.url,Form URL,URL,Yes,Feedback form link,https://example-bpp.com/feedback/portal,on_rating,Where to submit feedback
-message.feedbackForm.mime_type,MIME Type,String,No,Form content type,application/xml,on_rating,Format of feedback form
-message.feedbackForm.submission_id,Submission ID,String,No,Feedback submission reference,feedback-123e4567-e89b-12d3-a456-426614174000,on_rating,Unique submission identifier
 message.results,Publish Results,Array[Object],Yes,Catalog publish results,[{catalog_id status...}],on_catalog_publish,Indexing results
 message.results[].catalog_id,Catalog ID,String,Yes,Published catalog identifier,catalog-ev-charging-001,on_catalog_publish,Reference to catalog
 message.results[].status,Status,String,Yes,Publish status,"ACCEPTED, REJECTED",on_catalog_publish,Indexing outcome
@@ -235,12 +252,46 @@ message.results[].error,Error,Object,No,Rejection error details,{code message pa
 message.results[].error.code,Error Code,String,Yes,Error code,INVALID_ITEM,on_catalog_publish,Standard error code
 message.results[].error.message,Error Message,String,Yes,Error description,Invalid item payload at index 3,on_catalog_publish,Human-readable error
 message.results[].error.paths,Error Paths,String,No,Path to invalid data,catalogs[1].items[3],on_catalog_publish,JSONPath to error location
-beckn:payment.beckn:upiTransactionId,UPI Transaction ID,String,No,UPI payment transaction reference,UPI123456789012,"on_confirm, on_status, on_cancel",UPI payment identifier
-beckn:payment.beckn:beneficiary,Beneficiary,String,No,Payment recipient type,"BAP, BPP, BUYER","on_init, on_confirm, on_cancel",Who receives the payment
-beckn:payment.beckn:paidAt,Paid At,DateTime,No,Payment timestamp,2025-12-19T10:05:00Z,on_confirm,When payment was made
-beckn:orderAttributes,Order Attributes,Object,No,Order-level domain attributes,{@type: EvChargingOrder preferences: {...}},"select, on_select",EV charging order specifics
-beckn:orderAttributes.preferences,Preferences,Object,No,User charging preferences,{startTime endTime},"select, on_select",Preferred charging time window
-beckn:orderAttributes.preferences.startTime,Preferred Start Time,DateTime,No,Preferred session start,2026-01-04T08:00:00+05:30,"select, on_select",ISO 8601 format
-beckn:orderAttributes.preferences.endTime,Preferred End Time,DateTime,No,Preferred session end,2026-01-04T10:00:00+05:30,"select, on_select",ISO 8601 format
-beckn:orderAttributes.buyerFinderFee,Buyer Finder Fee,Object,No,BAP commission,{currency: INR value: 2.5},"select, on_select",Fee for BAP services
-
+message.order.beckn:payment.beckn:paidAt,Paid At,DateTime,No,Timestamp when payment was completed,2025-12-19T10:05:00Z,"confirm, on_cancel, on_confirm, on_status, on_update, status, update",Populated once payment is COMPLETED
+message.order.beckn:fulfillment,Fulfillment,Object,Yes,Fulfillment details for the order,{@type: beckn:Fulfillment...},"on_confirm, on_status, on_track, on_update, status, update",Added by BPP from on_confirm onward to communicate session delivery details
+message.order.beckn:fulfillment.\@context,Fulfillment Context,URL,Yes,JSON-LD context for fulfillment,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"on_confirm, on_status, on_track, on_update, status, update",Schema reference
+message.order.beckn:fulfillment.\@type,Fulfillment Type,String,Yes,JSON-LD type,beckn:Fulfillment,"on_confirm, on_status, on_track, on_update, status, update",Always beckn:Fulfillment
+message.order.beckn:fulfillment.beckn:id,Fulfillment ID,String,Yes,Unique fulfillment identifier,fulfillment-001,"on_confirm, on_status, on_track, on_update, status, update",Reference ID for this fulfillment
+message.order.beckn:fulfillment.beckn:mode,Fulfillment Mode,String,Yes,Mode of fulfillment,RESERVATION,"on_confirm, on_status, on_track, on_update, status, update",Always RESERVATION for EV charging sessions
+message.order.beckn:fulfillment.trackingAction,Tracking Action,Object,No,Tracking info (present in on_track),{@type: beckn:TrackAction target: {...}},on_track,Provided by BPP in on_track response
+message.order.beckn:fulfillment.trackingAction.\@type,Tracking Action Type,String,Yes,JSON-LD type,beckn:TrackAction,on_track,Always beckn:TrackAction
+message.order.beckn:fulfillment.trackingAction.target,Tracking Target,Object,Yes,Link to session tracking page,{@type: schema:EntryPoint url: ...},on_track,Where to access live tracking
+message.order.beckn:fulfillment.trackingAction.target.\@type,Target Type,String,Yes,JSON-LD type of target,schema:EntryPoint,on_track,Always schema:EntryPoint
+message.order.beckn:fulfillment.trackingAction.target.url,Tracking URL,URL,Yes,URL to track the charging session,https://track.bluechargenet-aggregator.io/session/SESSION-9876543210,on_track,Direct link to live session data or tracking page
+message.order.beckn:fulfillment.beckn:deliveryAttributes,Delivery Attributes,Object,Yes,EV charging session-specific delivery details,{@type: ChargingSession sessionStatus: PENDING...},"on_confirm, on_status, on_track, on_update, status, update",ChargingSession schema extension for fulfillment delivery details
+message.order.beckn:fulfillment.beckn:deliveryAttributes.\@context,Context,URL,Yes,ChargingSession schema context,https://raw.githubusercontent.com/.../EvChargingSession/v1/context.jsonld,"on_confirm, on_status, on_track, on_update, status, update",Schema reference for EvChargingSession on fulfillment
+message.order.beckn:fulfillment.beckn:deliveryAttributes.\@type,Type,String,Yes,Type identifier,ChargingSession,"on_confirm, on_status, on_track, on_update, status, update",Always ChargingSession
+message.order.beckn:fulfillment.beckn:deliveryAttributes.sessionStatus,Session Status,String,Yes,Current status of the charging session,"PENDING, ACTIVE, COMPLETED, INTERRUPTED, STOP","on_confirm, on_status, on_track, on_update, status, update",PENDING=confirmed/waiting; ACTIVE=charging in progress; STOP=stop requested; COMPLETED=done; INTERRUPTED=unexpectedly stopped
+message.order.beckn:fulfillment.beckn:deliveryAttributes.connectorType,Connector Type,String,No,Connector type for this session,CCS2,"on_confirm, on_status, on_update, status, update",Echoed from catalog item; present in early session states
+message.order.beckn:fulfillment.beckn:deliveryAttributes.maxPowerKW,Max Power (kW),Number,No,Max power for this session in kW,50,"on_confirm, on_status, on_update, status, update",Echoed from catalog; present in early session states
+message.order.beckn:fulfillment.beckn:deliveryAttributes.connectorStatus,Connector Status,String,No,Physical connector plug-in status,PREPARING,on_status,"Indicates physical plug state: PREPARING, CHARGING, FINISHING, AVAILABLE"
+message.order.beckn:fulfillment.beckn:deliveryAttributes.chargingTelemetry,Charging Telemetry,Array[Object],No,Real-time session telemetry data,[{eventTime metrics: [...]}],on_track,Time-series charging metrics; only present in on_track response
+message.order.beckn:fulfillment.beckn:deliveryAttributes.chargingTelemetry[].eventTime,Event Time,DateTime,Yes,Timestamp of telemetry reading,2025-01-27T17:00:00Z,on_track,ISO 8601 format
+message.order.beckn:fulfillment.beckn:deliveryAttributes.chargingTelemetry[].metrics,Metrics,Array[Object],Yes,Array of metric readings at this event time,[{name value unitCode}],on_track,Charging session measurements at a point in time
+message.order.beckn:fulfillment.beckn:deliveryAttributes.chargingTelemetry[].metrics[].name,Metric Name,String,Yes,Type of measurement,"STATE_OF_CHARGE, POWER, ENERGY, VOLTAGE, CURRENT",on_track,SOC=battery %; POWER=charging rate; ENERGY=delivered kWh; VOLTAGE=volts; CURRENT=amps
+message.order.beckn:fulfillment.beckn:deliveryAttributes.chargingTelemetry[].metrics[].value,Metric Value,Number,Yes,Measured value,62.5,on_track,Numeric measurement value
+message.order.beckn:fulfillment.beckn:deliveryAttributes.chargingTelemetry[].metrics[].unitCode,Unit Code,String,Yes,Unit of measurement,"PERCENTAGE, KWH, KW, VLT, AMP",on_track,UN/CEFACT unit codes matching metric name
+message.refId,Reference ID,String,Yes,ID of the entity being supported,"order-ev-charging-001, IND*ecopower-charging*cs-01*...",support,Order ID or Item ID being referenced for support
+message.refType,Reference Type,String,Yes,Type of entity being referenced,"ORDER, ITEM, FULFILLMENT",support,What refId refers to: ORDER for billing/session issues; ITEM for hardware/station issues
+message.support,Support Info,Object,Yes,Support contact information provided by BAP (in support) or BPP (in on_support),{@type: beckn:SupportInfo name phone email...},"on_support, support",Contains contact details for the support channel
+message.support.\@context,Support Context,URL,Yes,JSON-LD context for SupportInfo,https://raw.githubusercontent.com/.../core/v2/context.jsonld,"on_support, support",Schema reference
+message.support.\@type,Support Type,String,Yes,JSON-LD type,beckn:SupportInfo,"on_support, support",Always beckn:SupportInfo
+message.support.name,Support Name,String,No,Name of the person or team,Ravi Kumar,"on_support, support",Buyer name in support request; BPP team name in on_support (e.g. BlueCharge Support Team)
+message.support.phone,Support Phone,String,No,Phone number for support,+91-9876543210,"on_support, support",Buyer's phone in support; BPP helpline in on_support
+message.support.email,Support Email,String,No,Email address for support,ravi.kumar@example.com,"on_support, support",Buyer's email in support; BPP support email in on_support
+message.support.url,Support URL,URL,No,URL to support ticket or portal,https://support.bluechargenet-aggregator.io/ticket/SUP-20250730-001,on_support,Link to the support ticket created by BPP
+message.support.hours,Support Hours,String,No,Operating hours for support,Mon–Sun: 6:00 PM - 10:00 PM IST,"on_support, support",When support is available
+message.support.channels,Support Channels,Array[String],No,Communication channels for support,"[PHONE, WHATSAPP, EMAIL, WEB, CHAT]","on_support, support","Available channels: PHONE, WHATSAPP, EMAIL, WEB, CHAT"
+message.feedback,Support Feedback,Object,Yes,UBC extension for support feedback and status,{@type: SupportFeedback comments: ... supportStatus: OPEN},"on_support, support",Carries support lifecycle status and optional comments/tags
+message.feedback.\@context,Feedback Context,URL,Yes,SupportFeedback context,https://raw.githubusercontent.com/bhim/ubc-tsd/main/beckn-schemas/UBCExtensions/v1/context.jsonld,"on_support, support",Schema reference for UBC SupportFeedback extension
+message.feedback.\@type,Feedback Type,String,Yes,Type identifier,SupportFeedback,"on_support, support",Always SupportFeedback
+message.feedback.comments,Feedback Comments,String,No,Detailed description of the issue or resolution,Charging session stopped unexpectedly at 40% battery...,"on_support, support",Free-text description from buyer in support; resolution details in on_support
+message.feedback.tags,Feedback Tags,Array[String],No,Predefined issue tags,"[charging-interrupted, billing-dispute, charger-malfunction]",support,Issue categorization tags; helps route support ticket
+message.feedback.supportStatus,Support Status,String,Yes,Current lifecycle status of the support ticket,"OPEN, ACKNOWLEDGED, IN_PROGRESS, RESOLVED, CLOSED","on_support, support",BAP sends OPEN/CLOSED; BPP echoes state: ACKNOWLEDGED → IN_PROGRESS → RESOLVED
+message.catalogs,Catalogs (Publish),Array[Object],Yes,Array of catalog objects being published to discovery indexer,[{@type: beckn:Catalog...}],"catalog_publish, on_discover","Same structure as on_discover catalogs; CPO pushes full catalog to discovery; contains items, offers"
+message.order.beckn:payment.beckn:paymentAttributes.upiTransactionId (compact),UPI Transaction ID (compact),String,No,UPI transaction ID without settlementAccounts,UPI123456789012,"confirm, on_confirm, status, on_status, update, on_update, on_track, on_cancel",After payment collected; paymentAttributes only contains upiTransactionId (settlementAccounts no longer needed)
